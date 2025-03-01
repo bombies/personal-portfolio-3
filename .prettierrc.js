@@ -9,7 +9,7 @@ module.exports = {
 	quoteProps: 'as-needed',
 	semi: true,
 	singleQuote: true,
-	tabWidth: 4,
+	tabWidth: 8,
 	trailingComma: 'all',
 	useTabs: true,
 	importOrder: ['^@core/(.*)$', '^@server/(.*)$', '^@ui/(.*)$', '^[./]'],
