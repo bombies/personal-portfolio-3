@@ -3,18 +3,22 @@
 export default $config({
   app(input) {
     return {
-      name: "monorepo-template",
+      name: "personal-portfolio-3",
       removal: input?.stage === "production" ? "retain" : "remove",
       protect: ["production"].includes(input?.stage),
       home: "aws",
+      providers: {
+        aws: {
+          profile: "portfolio-3",
+        }
+      }
     };
   },
   async run() {
-    const storage = await import("./infra/storage");
-    await import("./infra/api");
+    const infra = await import("./infra");
 
     return {
-      MyBucket: storage.bucket.name,
+      website: infra.frontend.url
     };
   },
 });

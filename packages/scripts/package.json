@@ -1,10 +1,10 @@
 {
-  "name": "@monorepo-template/scripts",
+  "name": "@personal-portfolio-3/scripts",
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
-    "@monorepo-template/core": "*",
-    "sst": "*"
+    "@personal-portfolio-3/core": "*",
+    "sst": "^3"
   },
   "scripts": {
     "shell": "sst shell tsx"
