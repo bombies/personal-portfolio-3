@@ -10,7 +10,7 @@ import {
 	useMemo,
 } from 'react';
 
-import { cn } from '../lib/utils';
+import { cn } from '../../lib/utils';
 
 type Props =
 	| ({ href?: never; smoothTransition?: never } & DetailedHTMLProps<
@@ -53,7 +53,7 @@ const BadgeButton: FC<Props> = ({
 			// @ts-expect-error Typescript can't tell that the attributes will be for an anchor
 			<a
 				{...props}
-				href="href"
+				href={href}
 				className={btnClass}
 				onClick={e => {
 					e.preventDefault();

@@ -14,7 +14,7 @@ export const inter = Inter({
 export const firaMono = Fira_Mono({
 	variable: '--font-fira-mono',
 	display: 'swap',
-	weight: ['400'],
+	weight: ['400', '500', '700'],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function RootLayout({
 		<ViewTransitions>
 			<html lang="en">
 				<body
-					className={`${inter.variable} ${firaMono.variable} px-8 antialiased`}
+					className={`${inter.variable} ${firaMono.variable} antialiased`}
 				>
 					<Navbar />
 					{children}

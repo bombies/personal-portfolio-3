@@ -7,7 +7,7 @@ import { useTransitionRouter } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
 import { FC, useMemo } from 'react';
 
-import BadgeButton from '../badge-button';
+import BadgeButton from '../ui/badge-button';
 import { useNavbarData } from './navbar-provider';
 
 const navbarItems: { href: string; label: string }[] = [
@@ -45,7 +45,7 @@ const NavbarMenu: FC = () => {
 					exit={{
 						left: '-1000px',
 					}}
-					className="bg-background w-full h-[calc(100vh-5.5rem)] absolute top-12 z-10 flex flex-col gap-y-6 justify-center"
+					className="bg-background w-full h-[calc(100vh-5.5rem)] laptop:h-[calc(100vh-12rem)] absolute top-12 z-10 px-8 laptop:px-24 flex flex-col gap-y-6 justify-center"
 				>
 					{items}
 					<div className="flex gap-x-6">

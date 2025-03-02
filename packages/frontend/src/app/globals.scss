@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@use 'tailwindcss';
 
 @plugin 'tailwindcss-animate';
 
@@ -7,6 +7,12 @@
 @theme {
 	--font-sans: var(--font-inter);
 	--font-mono: var(--font-fira-mono);
+
+	--breakpoint-desktop: 1920px;
+	--breakpoint-laptop-big: 1440px;
+	--breakpoint-laptop: 1280px;
+	--breakpoint-tablet: 1025px;
+	--breakpoint-phone-big: 768px;
 
 	--color-primary: #69c500;
 	--color-background: #050a00;
@@ -178,4 +184,17 @@ $transition-fastest: 75ms;
 
 .transition-fastest {
 	transition: all ease-in-out $transition-fastest;
+}
+
+::-webkit-scrollbar {
+	width: 0.2rem;
+	height: 0.15rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #142900;
+}
+
+::-webkit-scrollbar-track {
+	background: #050a00;
 }
