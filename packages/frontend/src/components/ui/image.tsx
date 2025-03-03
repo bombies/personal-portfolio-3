@@ -4,13 +4,13 @@ import clsx from 'clsx';
 import { MotionProps, motion } from 'framer-motion';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import NextImage, { ImageProps } from 'next/image';
-import { FC, useState } from 'react';
+import { CSSProperties, FC, useState } from 'react';
 
 import { cn } from '../../lib/utils';
 
 export type ObjectFit = 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
 
-type Props = Omit<ImageProps, 'objectFit' | 'src' | 'className'> & {
+type Props = Omit<ImageProps, 'objectFit' | 'src' | 'className' | 'style'> & {
 	imgWidth?: number;
 	imgHeight?: number;
 	classNames?: {
@@ -18,6 +18,7 @@ type Props = Omit<ImageProps, 'objectFit' | 'src' | 'className'> & {
 		container?: string;
 		image?: string;
 	};
+	styles?: CSSProperties;
 	fadeIn?: boolean;
 	objectFit?: ObjectFit;
 	fallbackSrc?: string;
@@ -30,6 +31,7 @@ const Image: FC<Props> = ({
 	imgWidth,
 	imgHeight,
 	classNames,
+	styles,
 	width,
 	height,
 	objectFit,
@@ -48,13 +50,14 @@ const Image: FC<Props> = ({
 			viewport={fadeIn ? { once: true } : undefined}
 			{...animation}
 			className={clsx(
-				'!relative overflow-hidden',
+				'relative overflow-hidden',
 				classNames?.global,
 				classNames?.container,
 			)}
 			style={{
 				width: width && `${width}rem`,
 				height: width && `${height ?? width}rem`,
+				...styles,
 			}}
 		>
 			<NextImage

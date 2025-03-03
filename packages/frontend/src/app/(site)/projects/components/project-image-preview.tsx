@@ -4,14 +4,18 @@ import { AnimatePresence, motion } from 'motion/react';
 import { FC, useMemo } from 'react';
 
 import Image from '../../../../components/ui/image';
+import { useExtractColors } from '../../../../lib/hooks/extract-colors/useExtractColors';
 import { useProjectPreviewData } from './project-preview-provider';
 
 const ProjectImagePreview: FC = () => {
 	const { focusedProject } = useProjectPreviewData();
 	const image = useMemo(
-		() => focusedProject?.images?.[0],
-		[focusedProject?.images],
+		() => focusedProject?.coverImage,
+		[focusedProject?.coverImage],
 	);
+	const { dominantColor } = useExtractColors(image, {
+		format: 'hex',
+	});
 
 	return (
 		<AnimatePresence>
@@ -35,10 +39,16 @@ const ProjectImagePreview: FC = () => {
 						src={image}
 						alt="Project Preview"
 						fill
-						classNames={{
-							container: 'hidden laptop:flex laptop:w-1/2 h-full rounded-md border border-border',
+						styles={{
+							backgroundColor:
+								dominantColor
+									? `${dominantColor}50`
+									: undefined,
 						}}
-						objectFit="cover"
+						classNames={{
+							container: 'hidden laptop:flex laptop:w-1/2 backdrop-blur-md h-full rounded-md border border-border',
+						}}
+						objectFit="contain"
 					/>
 				) : (
 					<motion.div
@@ -53,11 +63,6 @@ const ProjectImagePreview: FC = () => {
 					>
 						<p className="text-5xl font-bold text-center line-clamp-2 overflow-ellipsis">
 							{focusedProject.name}
-						</p>
-						<p className="text-center text-foreground-secondary line-clamp-3 overflow-ellipsis">
-							{
-								focusedProject.shortDescription
-							}
 						</p>
 					</motion.div>
 				)

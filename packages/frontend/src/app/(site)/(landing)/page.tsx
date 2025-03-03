@@ -42,51 +42,23 @@ export default function Home() {
 				animate="show"
 				className="flex flex-col items-center justify-center gap-y-6"
 			>
-				<MotionBadge
-					className="font-mono text-lg"
-					variant="outline"
-					variants={itemVariants}
-				>
-					<span className="text-accent">
-						Full-Stack
-					</span>{' '}
+				<MotionBadge className="font-mono text-lg gap-x-2" variant="outline" variants={itemVariants}>
+					<span className="text-accent">Full-Stack</span>
 					Developer
 				</MotionBadge>
-				<motion.h1
-					className="text-6xl laptop:text-9xl font-bold"
-					variants={itemVariants}
-				>
-					Ajani{' '}
-					<span className="text-primary">
-						Green
-					</span>
+				<motion.h1 className="text-6xl laptop:text-9xl font-bold text-center" variants={itemVariants}>
+					Ajani <span className="text-primary">Green</span>
 				</motion.h1>
-				<motion.p
-					className="text-center laptop:text-xl text-foreground-secondary"
-					variants={itemVariants}
-				>
-					Island Roots 🇯🇲, Cloud Heights –
-					Full-Stack Brilliance Reimagined.
+				<motion.p className="text-center laptop:text-xl text-foreground-secondary" variants={itemVariants}>
+					Island Roots 🇯🇲, Cloud Heights – Full-Stack Brilliance Reimagined.
 				</motion.p>
-				<motion.div
-					className="flex gap-x-4"
-					variants={itemVariants}
-				>
-					<BadgeButton
-						href="/projects"
-						smoothTransition
-					>
-						<ArrowRightIcon
-							size={18}
-							className="mr-1"
-						/>
+				<motion.div className="flex flex-col gap-4 phone-big:flex-row" variants={itemVariants}>
+					<BadgeButton href="/projects" className='justify-start w-fit' smoothTransition>
+						<ArrowRightIcon size={18} className="mr-1" />
 						my projects
 					</BadgeButton>
-					<BadgeButton href="/" smoothTransition>
-						<ArrowRightIcon
-							size={18}
-							className="mr-1"
-						/>
+					<BadgeButton href="/about" smoothTransition>
+						<ArrowRightIcon size={18} className="mr-1" />
 						more about me
 					</BadgeButton>
 				</motion.div>

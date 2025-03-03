@@ -1,11 +1,13 @@
 'use client';
 
+import { Project } from '@/app/(site)/projects/types';
 import { useTransitionRouter } from 'next-view-transitions';
 import { FC } from 'react';
 
 import { Separator } from '../../../../components/ui/separator';
+import { slideRight } from '../../../../lib/page-transitions';
 import { urlify } from '../../../../lib/utils';
-import { Project, projects } from '../data';
+import { projects } from '../data';
 import { useProjectPreviewData } from './project-preview-provider';
 
 type ProjectItemProps = {
@@ -23,10 +25,16 @@ const ProjectItem: FC<ProjectItemProps> = ({ project, ordinal }) => {
 			onMouseLeave={() => setFocusedProject?.(undefined)}
 		>
 			<a
-				href={urlify(project.name)}
+				href={`/projects${urlify(project.name)}`}
 				onClick={e => {
 					e.preventDefault();
-					router.push(urlify(project.name));
+					router.push(
+						`/projects${urlify(project.name)}`,
+						{
+							onTransitionReady:
+								slideRight,
+						},
+					);
 				}}
 				className="block font-semibold text-lg w-full line-clamp-1 overflow-ellipsis"
 			>

@@ -8,13 +8,13 @@ import NavbarProvider from './navbar-provider';
 const Navbar: FC = () => {
 	return (
 		<NavbarProvider>
-			<nav className="w-full flex justify-between items-center h-12 px-8 laptop:px-24 mt-6 laptop:mt-32 relative">
-				<NavbarBrand />
-				<div>
+			<div className="sticky top-8 laptop:top-16 w-full flex flex-col items-center z-[100]">
+				<div className="w-[calc(100vw-2rem)] rounded-xl px-6 laptop:w-[calc(100vw-6rem)] flex justify-between items-center h-18 bg-background/20 border border-border backdrop-blur-lg">
+					<NavbarBrand />
 					<NavbarHamburger />
 				</div>
-				<NavbarMenu />
-			</nav>
+			</div>
+			<NavbarMenu />
 		</NavbarProvider>
 	);
 };

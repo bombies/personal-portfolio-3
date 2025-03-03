@@ -8,7 +8,7 @@ type TitleProps = PropsWithChildren<{
 
 const Title: FC<TitleProps> = ({ children, className }) => {
 	return (
-		<h1 className={cn('font-bold text-3xl', className)}>
+		<h1 className={cn('font-bold text-3xl laptop:text-7xl', className)}>
 			{children}
 		</h1>
 	);

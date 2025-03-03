@@ -7,13 +7,14 @@ import { useTransitionRouter } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
 import { FC, useMemo } from 'react';
 
+import { slideUp } from '../../lib/page-transitions';
 import BadgeButton from '../ui/badge-button';
 import { useNavbarData } from './navbar-provider';
 
 const navbarItems: { href: string; label: string }[] = [
 	{ label: 'HOME', href: '/' },
-	{ label: 'PROJECTS', href: '/' },
-	{ label: 'ABOUT', href: '/' },
+	{ label: 'PROJECTS', href: '/projects' },
+	{ label: 'ABOUT', href: '/about' },
 	{ label: 'CONTACT', href: '/' },
 ];
 
@@ -23,56 +24,66 @@ const NavbarMenu: FC = () => {
 	const items = useMemo(
 		() =>
 			navbarItems.map((item, ordinal) => (
-				<NavbarMenuItem
-					key={`navbaritem#${item.href}#${ordinal}`}
-					{...item}
-					ordinal={ordinal + 1}
-				/>
+				<NavbarMenuItem key={`navbaritem#${item.href}#${ordinal}`} {...item} ordinal={ordinal + 1} />
 			)),
 		[],
 	);
 
+	// useEffect(() => {
+	// 	const mains = document.getElementsByTagName('main');
+
+	// 	for (let i = 0; i < mains.length; i++) {
+	// 		const main = mains[i];
+	// 		if (opened) {
+	// 			main.style.overflow = 'hidden';
+	// 			main.style.height = '80vh';
+	// 		} else {
+	// 			main.style.overflow = 'auto';
+	// 			main.style.height = 'fit-content';
+	// 		}
+	// 	}
+
+	// 	return () => {
+	// 		for (let i = 0; i < mains.length; i++) {
+	// 			const main = mains[i];
+	// 			main.style.overflow = 'auto';
+	// 			main.style.height = 'fit-content';
+	// 		}
+	// 	};
+	// }, [opened]);
+
 	return (
 		<AnimatePresence>
 			{opened && (
-				<motion.div
+				<motion.nav
+					transition={{
+						duration: 0.75,
+						type: 'spring',
+					}}
 					initial={{
+						opacity: 0,
 						left: '-1000px',
 					}}
 					animate={{
+						opacity: 1,
 						left: '0px',
 					}}
 					exit={{
+						opacity: 0,
 						left: '-1000px',
 					}}
-					className="bg-background w-full h-[calc(100vh-5.5rem)] laptop:h-[calc(100vh-12rem)] absolute top-12 z-10 px-8 laptop:px-24 flex flex-col gap-y-6 justify-center"
+					className="bg-background/80 backdrop-blur-lg w-full h-screen fixed top-0 z-[99] translate-z-0 isolate px-8 laptop:px-24 flex flex-col gap-y-6 justify-center"
 				>
 					{items}
 					<div className="flex gap-x-6">
-						<BadgeButton
-							href="/"
-							target="_blank"
-							referrerPolicy="no-referrer"
-						>
-							<ArrowUpRightIcon
-								size={18}
-							/>{' '}
-							<p className="font-mono">
-								resume
-							</p>
+						<BadgeButton href="/AjaniGreenResume.pdf" newTab>
+							<ArrowUpRightIcon size={18} /> <p className="font-mono">resume</p>
 						</BadgeButton>
-						<BadgeButton
-							href="/"
-							target="_blank"
-							referrerPolicy="no-referrer"
-						>
-							<SiGithub size={18} />{' '}
-							<p className="font-mono">
-								github
-							</p>
+						<BadgeButton href="https://github.com/bombies" newTab>
+							<SiGithub size={18} /> <p className="font-mono">github</p>
 						</BadgeButton>
 					</div>
-				</motion.div>
+				</motion.nav>
 			)}
 		</AnimatePresence>
 	);
@@ -95,18 +106,18 @@ const NavbarMenuItem: FC<NavbarMenuItemProps> = ({ ordinal, href, label }) => {
 				e.preventDefault();
 				setOpened(false);
 
-				if (href !== pathname) router.push(href);
+				if (href !== pathname)
+					router.push(href, {
+						onTransitionReady: slideUp,
+					});
 			}}
 		>
 			<p className="font-bold text-5xl flex items-center gap-2">
-				<span className="font-mono font-normal text-xs">
-					#{ordinal}
-				</span>
+				<span className="font-mono font-normal text-xs">#{ordinal}</span>
 				<motion.span
-                initial={{
+					initial={{
 						letterSpacing: '0.151em',
-
-                }}
+					}}
 					whileHover={{
 						letterSpacing: '0',
 					}}

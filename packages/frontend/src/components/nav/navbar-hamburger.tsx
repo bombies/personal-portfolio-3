@@ -89,13 +89,13 @@ const variants = {
 		open: {
 			rotate: ['0deg', '0deg', '45deg'],
 			bottom: ['35%', '50%', '50%'],
-			opacity: ['1', '1', '0'],
+			opacity: [1, 1, 0],
 			left: '50%',
 		},
 		closed: {
 			rotate: ['45deg', '0deg', '0deg'],
 			bottom: ['50%', '50%', '35%'],
-			opacity: ['0', '1', '1'],
+			opacity: [0, 1, 1],
 			left: '50%',
 		},
 	},

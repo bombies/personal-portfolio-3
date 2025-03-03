@@ -1,17 +1,17 @@
-@use 'tailwindcss';
+@import 'tailwindcss';
 
 @plugin 'tailwindcss-animate';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-	--font-sans: var(--font-inter);
+	--font-sans: var(--font-sf-pro-display);
 	--font-mono: var(--font-fira-mono);
 
 	--breakpoint-desktop: 1920px;
 	--breakpoint-laptop-big: 1440px;
 	--breakpoint-laptop: 1280px;
-	--breakpoint-tablet: 1025px;
+	--breakpoint-tablet: 1024px;
 	--breakpoint-phone-big: 768px;
 
 	--color-primary: #69c500;
@@ -22,6 +22,28 @@
 	--color-muted: #9fc178;
 	--color-secondary: #488600;
 	--border: oklch(97.91% 0.0487 127.36 / 6.27%);
+
+	/* shadcn stuff */
+	--animate-accordion-down: accordion-down 0.2s ease-out;
+	--animate-accordion-up: accordion-up 0.2s ease-out;
+
+	@keyframes accordion-down {
+		from {
+			height: 0;
+		}
+		to {
+			height: var(--radix-accordion-content-height);
+		}
+	}
+
+	@keyframes accordion-up {
+		from {
+			height: var(--radix-accordion-content-height);
+		}
+		to {
+			height: 0;
+		}
+	}
 }
 
 :root {
@@ -155,37 +177,6 @@
 	}
 }
 
-$transition-slowest: 1000ms;
-$transition-slow: 700ms;
-$transition-medium: 500ms;
-$transition-fast: 300ms;
-$transition-faster: 100ms;
-$transition-fastest: 75ms;
-
-.transition-slow {
-	transition: all ease-in-out $transition-slow;
-}
-
-.transition-slowest {
-	transition: all ease-in-out $transition-slowest;
-}
-
-.transition-medium {
-	transition: all ease-in-out $transition-medium;
-}
-
-.transition-fast {
-	transition: all ease-in-out $transition-fast;
-}
-
-.transition-faster {
-	transition: all ease-in-out $transition-faster;
-}
-
-.transition-fastest {
-	transition: all ease-in-out $transition-fastest;
-}
-
 ::-webkit-scrollbar {
 	width: 0.2rem;
 	height: 0.15rem;
@@ -197,4 +188,29 @@ $transition-fastest: 75ms;
 
 ::-webkit-scrollbar-track {
 	background: #050a00;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none !important;
+}
+
+::view-transition-group(root) {
+	z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+	isolation: isolate;
+	will-change: transform, opacity, clip-path;
+	z-index: 1;
+}
+
+::view-transition-new(rot) {
+	z-index: 10000;
+	animation: none !important;
+}
+
+::view-transition-new(rot) {
+	z-index: 1;
+	animation: none !important;
 }
