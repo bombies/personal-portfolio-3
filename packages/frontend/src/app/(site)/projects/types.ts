@@ -1,7 +1,15 @@
 import { GalleryProps } from '@/app/(site)/projects/components/projects-content/utils/gallery';
 import {
 	IconType,
+	SiAmazondynamodb,
+	SiAmazonec2,
+	SiAmazonecs,
+	SiAmazons3,
+	SiAmazonsimpleemailservice,
+	SiAmazonsqs,
 	SiAmazonwebservices,
+	SiAwsfargate,
+	SiAwslambda,
 	SiC,
 	SiCplusplus,
 	SiCss,
@@ -51,10 +59,10 @@ export type Project = {
 	}[];
 	coverImage?: string;
 	galleryImages?: GalleryProps['images'];
-	techStack?: Technoloy[];
+	techStack?: Technology[];
 };
 
-export enum Technoloy {
+export enum Technology {
 	// Languages
 	C,
 	CPP,
@@ -65,7 +73,7 @@ export enum Technoloy {
 	TYPESCRIPT,
 	HTML,
 	CSS,
-	Sass,
+	SASS,
 
 	// Frameworks
 	REACT,
@@ -93,6 +101,14 @@ export enum Technoloy {
 	GITHUB_ACTIONS,
 	MONGODB,
 	POSTGRESQL,
+	DYNAMODB,
+	LAMBDA,
+	SES,
+	SQS,
+	S3,
+	EC2,
+	ECS,
+	FARGATE,
 }
 
 type TechnologyAttributes = {
@@ -100,129 +116,161 @@ type TechnologyAttributes = {
 	icon: IconType;
 };
 
-export const technologyAttributes: Record<Technoloy, TechnologyAttributes> = {
-	[Technoloy.C]: {
+export const technologyAttributes: Record<Technology, TechnologyAttributes> = {
+	[Technology.C]: {
 		label: 'C',
 		icon: SiC,
 	},
-	[Technoloy.CPP]: {
+	[Technology.CPP]: {
 		label: 'C++',
 		icon: SiCplusplus,
 	},
-	[Technoloy.JAVA]: {
+	[Technology.JAVA]: {
 		label: 'Java',
 		icon: SiOpenjdk,
 	},
-	[Technoloy.KOTLIN]: {
+	[Technology.KOTLIN]: {
 		label: 'Kotlin',
 		icon: SiKotlin,
 	},
-	[Technoloy.PYTHON]: {
+	[Technology.PYTHON]: {
 		label: 'Python',
 		icon: SiPython,
 	},
-	[Technoloy.JAVASCRIPT]: {
+	[Technology.JAVASCRIPT]: {
 		label: 'JavaScript',
 		icon: SiJavascript,
 	},
-	[Technoloy.TYPESCRIPT]: {
+	[Technology.TYPESCRIPT]: {
 		label: 'TypeScript',
 		icon: SiTypescript,
 	},
-	[Technoloy.HTML]: {
+	[Technology.HTML]: {
 		label: 'HTML',
 		icon: SiHtml5,
 	},
-	[Technoloy.CSS]: {
+	[Technology.CSS]: {
 		label: 'CSS',
 		icon: SiCss,
 	},
-	[Technoloy.Sass]: {
+	[Technology.SASS]: {
 		label: 'Sass',
 		icon: SiSass,
 	},
-	[Technoloy.REACT]: {
+	[Technology.REACT]: {
 		label: 'React',
 		icon: SiReact,
 	},
-	[Technoloy.NEXTJS]: {
+	[Technology.NEXTJS]: {
 		label: 'Next.js',
 		icon: SiNextdotjs,
 	},
-	[Technoloy.EXPRESS]: {
+	[Technology.EXPRESS]: {
 		label: 'Express',
 		icon: SiExpress,
 	},
-	[Technoloy.NESTJS]: {
+	[Technology.NESTJS]: {
 		label: 'NestJS',
 		icon: SiNestjs,
 	},
-	[Technoloy.FLASK]: {
+	[Technology.FLASK]: {
 		label: 'Flask',
 		icon: SiFlask,
 	},
-	[Technoloy.SPRING]: {
+	[Technology.SPRING]: {
 		label: 'Spring',
 		icon: SiSpring,
 	},
-	[Technoloy.KTOR]: {
+	[Technology.KTOR]: {
 		label: 'Ktor',
 		icon: SiKtor,
 	},
-	[Technoloy.TAILWINDCSS]: {
+	[Technology.TAILWINDCSS]: {
 		label: 'Tailwind CSS',
 		icon: SiTailwindcss,
 	},
-	[Technoloy.DOCKER]: {
+	[Technology.DOCKER]: {
 		label: 'Docker',
 		icon: SiDocker,
 	},
-	[Technoloy.GIT]: {
+	[Technology.GIT]: {
 		label: 'Git',
 		icon: SiGit,
 	},
-	[Technoloy.GITHUB]: {
+	[Technology.GITHUB]: {
 		label: 'GitHub',
 		icon: SiGithub,
 	},
-	[Technoloy.GITLAB]: {
+	[Technology.GITLAB]: {
 		label: 'GitLab',
 		icon: SiGitlab,
 	},
-	[Technoloy.AWS]: {
+	[Technology.AWS]: {
 		label: 'AWS',
 		icon: SiAmazonwebservices,
 	},
-	[Technoloy.NGINX]: {
+	[Technology.NGINX]: {
 		label: 'NGINX',
 		icon: SiNginx,
 	},
-	[Technoloy.REDIS]: {
+	[Technology.REDIS]: {
 		label: 'Redis',
 		icon: SiRedis,
 	},
-	[Technoloy.INFLUXDB]: {
+	[Technology.INFLUXDB]: {
 		label: 'InfluxDB',
 		icon: SiInfluxdb,
 	},
-	[Technoloy.GRAFANA]: {
+	[Technology.GRAFANA]: {
 		label: 'Grafana',
 		icon: SiGrafana,
 	},
-	[Technoloy.SENTRY]: {
+	[Technology.SENTRY]: {
 		label: 'Sentry',
 		icon: SiSentry,
 	},
-	[Technoloy.GITHUB_ACTIONS]: {
+	[Technology.GITHUB_ACTIONS]: {
 		label: 'GitHub Actions',
 		icon: SiGithubactions,
 	},
-	[Technoloy.MONGODB]: {
+	[Technology.MONGODB]: {
 		label: 'MongoDB',
 		icon: SiMongodb,
 	},
-	[Technoloy.POSTGRESQL]: {
+	[Technology.POSTGRESQL]: {
 		label: 'PostgreSQL',
 		icon: SiPostgresql,
+	},
+	[Technology.DYNAMODB]: {
+		label: 'Amazon DynamoDB',
+		icon: SiAmazondynamodb,
+	},
+	[Technology.LAMBDA]: {
+		label: 'AWS Lambda',
+		icon: SiAwslambda,
+	},
+	[Technology.SES]: {
+		label: 'Amazon SES',
+		icon: SiAmazonsimpleemailservice,
+	},
+	[Technology.SQS]: {
+		label: 'Amazon SQS',
+		icon: SiAmazonsqs,
+	},
+	[Technology.S3]: {
+		label: 'Amazon S3',
+		icon: SiAmazons3,
+	},
+	[Technology.EC2]: {
+		label: 'Amazon EC2',
+		icon: SiAmazonec2,
+	},
+	[Technology.ECS]: {
+		label: 'Amazon ECS',
+		icon: SiAmazonecs,
+	},
+	[Technology.FARGATE]: {
+		label: 'AWS Fargate',
+		icon: SiAwsfargate,
 	},
 };

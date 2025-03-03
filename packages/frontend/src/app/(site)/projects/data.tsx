@@ -1,10 +1,11 @@
 import DreamLoggerContent from '@/app/(site)/projects/components/projects-content/dreamlogger-content';
+import GreensPubContent from '@/app/(site)/projects/components/projects-content/greenspub-content';
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { GlobeIcon } from 'lucide-react';
 
 import { urlify } from '../../../lib/utils';
 import RobertifyContent from './components/projects-content/robertify-content';
-import { Project, Technoloy } from './types';
+import { Project, Technology as Technology } from './types';
 
 export const projects: Project[] = [
 	{
@@ -13,8 +14,7 @@ export const projects: Project[] = [
 			category: 'Web Development',
 			year: [2021, 2024],
 			customer: 'Personal Project',
-			shortDescription:
-				'A next-gen Discord music bot with a multitude of features',
+			shortDescription: 'A next-gen Discord music bot with a multitude of features',
 		},
 		links: [
 			{
@@ -64,22 +64,22 @@ export const projects: Project[] = [
 			},
 		],
 		techStack: [
-			Technoloy.JAVA,
-			Technoloy.KOTLIN,
-			Technoloy.TYPESCRIPT,
-			Technoloy.REACT,
-			Technoloy.NEXTJS,
-			Technoloy.NESTJS,
-			Technoloy.REDIS,
-			Technoloy.MONGODB,
-			Technoloy.TAILWINDCSS,
-			Technoloy.Sass,
-			Technoloy.SPRING,
-			Technoloy.KTOR,
-			Technoloy.INFLUXDB,
-			Technoloy.SENTRY,
-			Technoloy.GITHUB_ACTIONS,
-			Technoloy.GRAFANA,
+			Technology.JAVA,
+			Technology.KOTLIN,
+			Technology.TYPESCRIPT,
+			Technology.REACT,
+			Technology.NEXTJS,
+			Technology.NESTJS,
+			Technology.REDIS,
+			Technology.MONGODB,
+			Technology.TAILWINDCSS,
+			Technology.SASS,
+			Technology.SPRING,
+			Technology.KTOR,
+			Technology.INFLUXDB,
+			Technology.SENTRY,
+			Technology.GITHUB_ACTIONS,
+			Technology.GRAFANA,
 		],
 	},
 	{
@@ -156,15 +156,89 @@ export const projects: Project[] = [
 		],
 		coverImage: 'https://i.imgur.com/La9GIDU.jpeg',
 		techStack: [
-			Technoloy.TYPESCRIPT,
-			Technoloy.REACT,
-			Technoloy.NEXTJS,
-			Technoloy.TAILWINDCSS,
-			Technoloy.Sass,
-			Technoloy.POSTGRESQL,
-			Technoloy.AWS,
-			Technoloy.GITHUB_ACTIONS,
+			Technology.TYPESCRIPT,
+			Technology.REACT,
+			Technology.NEXTJS,
+			Technology.TAILWINDCSS,
+			Technology.SASS,
+			Technology.POSTGRESQL,
+			Technology.AWS,
+			Technology.GITHUB_ACTIONS,
 		],
+	},
+	{
+		name: "Green's Restaurant & Pub Management Dashboard",
+		details: {
+			category: 'Web Development',
+			year: 2021,
+			customer: 'Personal Project',
+			shortDescription:
+				"A dashboard used to handle the managing of Green's Restaurant & Pub",
+		},
+		links: [
+			{
+				icon: <SiGithub size={18} />,
+				href: 'https://github.com/bombies/greens-restaurant-website',
+				label: 'Source Code',
+			},
+		],
+		techStack: [
+			Technology.REACT,
+			Technology.NEXTJS,
+			Technology.TYPESCRIPT,
+			Technology.TAILWINDCSS,
+			Technology.SASS,
+			Technology.MONGODB,
+			Technology.GITHUB_ACTIONS,
+		],
+		longDescription: <GreensPubContent />,
+		galleryImages: [
+			{
+				src: 'https://i.imgur.com/HXphz8i.gif',
+				alt: 'Dashboard Home Page',
+			},
+			{
+				src: 'https://i.imgur.com/3sDlDEP.gif',
+				alt: 'Inventory Management - Updating Stock',
+			},
+			{
+				src: 'https://i.imgur.com/HE7PgbZ.gif',
+				alt: 'Inventory Management - Adding New Stock',
+			},
+			{
+				src: 'https://i.imgur.com/VrAImJI.gif',
+				alt: 'Inventory Management - Location Management',
+			},
+			{
+				src: 'https://i.imgur.com/aXUjw8T.gif',
+				alt: 'Inventory Management - Item Requests',
+			},
+			{
+				src: 'https://i.imgur.com/gf4mkYl.gif',
+				alt: 'Invoice Management - Invoice Creation',
+			},
+			{
+				src: 'https://i.imgur.com/EdS3b7g.gif',
+				alt: 'Invoice Management - Invoice Filtering',
+			},
+			{
+				src: 'https://i.imgur.com/PuTKIeS.gif',
+				alt: 'Invoice Management - Invoice Reports',
+			},
+			{
+				src: 'https://i.imgur.com/x9gEW1Q.png',
+				alt: 'Invoice Management - Example Invoice',
+			},
+			{
+				src: 'https://i.imgur.com/qtUhAh7.png',
+				alt: 'User Management - User List',
+			},
+			{
+				src: 'https://i.imgur.com/xeMiGJ9.gif',
+				alt: 'User Management - Specific User',
+			},
+		],
+		coverImage: 'https://i.imgur.com/miGtc5e.png',
 	},
 ];
 

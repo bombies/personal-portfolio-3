@@ -1,41 +1,24 @@
 'use client';
 
-import {
-	Dispatch,
-	FC,
-	PropsWithChildren,
-	SetStateAction,
-	createContext,
-	useContext,
-	useMemo,
-	useState,
-} from 'react';
-
-import { Project } from '../data';
+import { Project } from '@/app/(site)/projects/types';
+import { Dispatch, FC, PropsWithChildren, SetStateAction, createContext, useContext, useMemo, useState } from 'react';
 
 type ProjectPreviewData = {
 	focusedProject?: Project;
 	setFocusedProject?: Dispatch<SetStateAction<Project | undefined>>;
 };
 
-const ProjectPreviewContext = createContext<ProjectPreviewData | undefined>(
-	undefined,
-);
+const ProjectPreviewContext = createContext<ProjectPreviewData | undefined>(undefined);
 
 export const useProjectPreviewData = () => {
 	const context = useContext(ProjectPreviewContext);
-	if (!context)
-		throw new Error(
-			'useProjectPreviewData must be used within a ProjectPreviewProvider',
-		);
+	if (!context) throw new Error('useProjectPreviewData must be used within a ProjectPreviewProvider');
 
 	return context;
 };
 
 const ProjectPreviewProvider: FC<PropsWithChildren> = ({ children }) => {
-	const [focusedProject, setFocusedProject] = useState<
-		Project | undefined
-	>(undefined);
+	const [focusedProject, setFocusedProject] = useState<Project | undefined>(undefined);
 
 	const data = useMemo(
 		() => ({
@@ -45,11 +28,7 @@ const ProjectPreviewProvider: FC<PropsWithChildren> = ({ children }) => {
 		[focusedProject],
 	);
 
-	return (
-		<ProjectPreviewContext.Provider value={data}>
-			{children}
-		</ProjectPreviewContext.Provider>
-	);
+	return <ProjectPreviewContext.Provider value={data}>{children}</ProjectPreviewContext.Provider>;
 };
 
 export default ProjectPreviewProvider;

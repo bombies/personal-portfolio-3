@@ -1,7 +1,7 @@
 'use client';
 
 const animationOptions: number | KeyframeAnimationOptions = {
-	duration: 1000,
+	duration: 350,
 	easing: 'cubic-bezier(0.87, 0, 0.13, 1)',
 	fill: 'forwards',
 };

@@ -1,4 +1,8 @@
-import { FC } from 'react';
+'use client';
+
+import { containerStaggerVariants, itemStaggerVariants } from '@/app/(site)/(landing)/page';
+import { motion } from 'motion/react';
+import { FC, useMemo } from 'react';
 
 import BreadcrumbBuilder from '../../../components/ui/breadcrumb-builder';
 import MainContainer from '../../../components/ui/main-container';
@@ -10,11 +14,19 @@ import ProjectPreviewProvider from './components/project-preview-provider';
 import { projects } from './data';
 
 const ProjectsPage: FC = () => {
+	const MotionBreadcrumbBuilder = useMemo(() => motion.create(BreadcrumbBuilder), []);
+	
 	return (
 		<ProjectPreviewProvider>
 			<MainContainer className="laptop:max-w-[75rem]">
-				<div className="flex flex-col w-full laptop:w-1/2 gap-y-6">
-					<BreadcrumbBuilder
+				<motion.div
+					variants={containerStaggerVariants}
+					initial="hidden"
+					animate="show"
+					className="flex flex-col w-full laptop:w-1/2 gap-y-6"
+				>
+					<MotionBreadcrumbBuilder
+						variants={itemStaggerVariants}
 						breadcrumbs={[
 							{
 								label: 'Home',
@@ -26,24 +38,17 @@ const ProjectsPage: FC = () => {
 							},
 						]}
 					/>
-					<div className="flex justify-between items-center shrink-0">
+					<motion.div variants={itemStaggerVariants} className="flex justify-between items-center shrink-0">
 						<Title>
-							My{' '}
-							<span className="text-primary">
-								Projects
-							</span>
+							My <span className="text-primary">Projects</span>
 						</Title>
 						<div className="bg-primary rounded-full size-8 flex justify-center items-center">
-							<span className="font-mono">
-								{
-									projects.length
-								}
-							</span>
+							<span className="font-mono">{projects.length}</span>
 						</div>
-					</div>
+					</motion.div>
 					<Separator />
 					<ProjectListing />
-				</div>
+				</motion.div>
 				<ProjectImagePreview />
 			</MainContainer>
 		</ProjectPreviewProvider>

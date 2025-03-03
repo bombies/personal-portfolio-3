@@ -6,7 +6,16 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function urlify(s: string): string {
-	return '/' + encodeURI(s.toLowerCase().replace(/\s/g, '-'));
+	return (
+		'/' +
+		encodeURI(
+			s
+				.toLowerCase()
+				.replace(/[^\w\s]/g, '')
+				.replace(/\s{2,}/g, ' ')
+				.replace(/\s/g, '-'),
+		)
+	);
 }
 
 export function dupeArr<T>(arr: T[], times: number): T[] {
