@@ -42,8 +42,8 @@ const ProjectsPage: FC = () => {
 						<Title>
 							My <span className="text-primary">Projects</span>
 						</Title>
-						<div className="bg-primary rounded-full size-8 flex justify-center items-center">
-							<span className="font-mono">{projects.length}</span>
+						<div className="bg-primary/10 border border-border rounded-full size-10 flex justify-center items-center">
+							<span className="font-mono font-bold">{projects.length}</span>
 						</div>
 					</motion.div>
 					<Separator />

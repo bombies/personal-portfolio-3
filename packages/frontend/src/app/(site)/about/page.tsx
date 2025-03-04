@@ -79,6 +79,9 @@ const AboutMePage: FC = () => {
 							return (
 								<MotionBadge
 									variants={itemStaggerVariants}
+									whileHover={{
+										scale: 1.15,
+									}}
 									key={`tech-${index}`}
 									variant="outline"
 									className="text-sm gap-3 font-mono"

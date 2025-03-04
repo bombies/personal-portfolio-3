@@ -1,15 +1,17 @@
 import DreamLoggerContent from '@/app/(site)/projects/components/projects-content/dreamlogger-content';
 import GreensPubContent from '@/app/(site)/projects/components/projects-content/greenspub-content';
+import MDGPTContent from '@/app/(site)/projects/components/projects-content/md-gpt-content';
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { GlobeIcon } from 'lucide-react';
 
 import { urlify } from '../../../lib/utils';
 import RobertifyContent from './components/projects-content/robertify-content';
-import { Project, Technology as Technology } from './types';
+import { Project, Technology } from './types';
 
 export const projects: Project[] = [
 	{
 		name: 'Robertify',
+		coverImage: 'https://i.imgur.com/sKrjmkH.png',
 		details: {
 			category: 'Web Development',
 			year: [2021, 2024],
@@ -86,7 +88,7 @@ export const projects: Project[] = [
 		name: 'DreamLogger',
 		details: {
 			category: 'Web Development',
-			year: 2021,
+			year: [2023, null],
 			customer: 'Personal Project',
 			shortDescription:
 				"DreamLogger is a showcase of my proficiency in full-stack web development, featuring a captivating Next.js front-end enriched with TypeScript, SASS, TailwindCSS, and UI libraries. The application's robust back-end utilizes Prisma for efficient database queries, Next-Auth for secure user authentication, and leverages AWS components like S3, CloudFront, and Route53 for scalability. The meticulous design process, initiated in Figma, resulted in a seamless user experience, ensuring dream enthusiasts can effortlessly log, categorize, and share their dreams while exploring personalized features like the Dream Calendar, custom tags, and character tracking. DreamLogger represents not just a web application, but a fusion of innovative technologies and thoughtful design, encapsulating the potential of modern web development.",
@@ -154,7 +156,7 @@ export const projects: Project[] = [
 				alt: 'DreamLogger Dream Dashboard - Light Mode',
 			},
 		],
-		coverImage: 'https://i.imgur.com/La9GIDU.jpeg',
+		coverImage: 'https://i.imgur.com/mcXQTJo.png',
 		techStack: [
 			Technology.TYPESCRIPT,
 			Technology.REACT,
@@ -195,38 +197,47 @@ export const projects: Project[] = [
 		galleryImages: [
 			{
 				src: 'https://i.imgur.com/HXphz8i.gif',
+				firstFrame: '/greens-pub/HXphz8i.jpg',
 				alt: 'Dashboard Home Page',
 			},
 			{
 				src: 'https://i.imgur.com/3sDlDEP.gif',
+				firstFrame: '/greens-pub/3sDlDEP.jpg',
 				alt: 'Inventory Management - Updating Stock',
 			},
 			{
 				src: 'https://i.imgur.com/HE7PgbZ.gif',
+				firstFrame: '/greens-pub/HE7PgbZ.jpg',
 				alt: 'Inventory Management - Adding New Stock',
 			},
 			{
 				src: 'https://i.imgur.com/VrAImJI.gif',
+				firstFrame: '/greens-pub/VrAImJI.jpg',
 				alt: 'Inventory Management - Location Management',
 			},
 			{
 				src: 'https://i.imgur.com/aXUjw8T.gif',
+				firstFrame: '/greens-pub/aXUjw8T.jpg',
 				alt: 'Inventory Management - Item Requests',
 			},
 			{
 				src: 'https://i.imgur.com/gf4mkYl.gif',
+				firstFrame: '/greens-pub/gf4mkYl.jpg',
 				alt: 'Invoice Management - Invoice Creation',
 			},
 			{
 				src: 'https://i.imgur.com/EdS3b7g.gif',
+				firstFrame: '/greens-pub/EdS3b7g.jpg',
 				alt: 'Invoice Management - Invoice Filtering',
 			},
 			{
 				src: 'https://i.imgur.com/PuTKIeS.gif',
+				firstFrame: '/greens-pub/PuTKIeS.jpg',
 				alt: 'Invoice Management - Invoice Reports',
 			},
 			{
 				src: 'https://i.imgur.com/x9gEW1Q.png',
+				firstFrame: '/greens-pub/x9gEW1Q.jpg',
 				alt: 'Invoice Management - Example Invoice',
 			},
 			{
@@ -235,10 +246,73 @@ export const projects: Project[] = [
 			},
 			{
 				src: 'https://i.imgur.com/xeMiGJ9.gif',
+				firstFrame: '/greens-pub/xeMiGJ9.jpg',
 				alt: 'User Management - Specific User',
 			},
 		],
-		coverImage: 'https://i.imgur.com/miGtc5e.png',
+		coverImage: 'https://i.imgur.com/uV77dgo.png',
+	},
+	{
+		name: 'MD-GPT',
+		details: {
+			category: 'Machine Learning/Artificial Intelligence (ML/AI)',
+			year: [2023, 2024],
+			customer: 'Personal Project',
+			shortDescription:
+				'MD-GPT started as a wild idea during an AI hackathon I attended with two school mates for the Jamaica Artificial Intelligence Association (JAIA) in 2023. We literally hacked it together in just 8 hours, driven by our curiosity about how AI could help doctors manage patient data and consultations more efficiently. What began as a rapid prototype soon evolved into a full-fledged project for our AI course in 2024.',
+		},
+		links: [
+			{
+				href: 'https://github.com/bombies/md-gpt',
+				label: 'Source Code',
+				icon: <SiGithub size={18} />,
+			},
+		],
+		coverImage: 'https://i.imgur.com/IVNC0NV.png',
+		longDescription: <MDGPTContent />,
+		techStack: [
+			Technology.PYTHON,
+			Technology.FASTAPI,
+			Technology.MONGODB,
+			Technology.TYPESCRIPT,
+			Technology.REACT,
+			Technology.NEXTJS,
+			Technology.SASS,
+			Technology.TAILWINDCSS,
+		],
+		galleryImages: [
+			{
+				src: 'https://i.imgur.com/IVNC0NV.png',
+				alt: 'MD-GPT Landing Page',
+			},
+			{
+				src: 'https://i.imgur.com/bvLRHtg.gif',
+				alt: 'MD-GPT Dashboard',
+			},
+			{
+				src: 'https://i.imgur.com/unOGdJj.gif',
+				alt: 'MD-GPT Patient Consultation',
+			},
+		],
+	},
+	{
+		name: 'Earle & Wilson | Law Firm Website',
+		coverImage: 'https://i.imgur.com/6vczglZ.png',
+		details: {
+			category: 'Web Development',
+			year: 2024,
+			customer: 'Earle & Wilson',
+			shortDescription:
+				'A website for a law firm that provides legal services in Jamaica.',
+		},
+		links: [
+			{
+				href: 'https://earlewilson.com',
+				label: 'Live Website',
+				icon: <GlobeIcon size={18} />,
+			},
+		],
+		longDescription: <></>,
 	},
 ];
 

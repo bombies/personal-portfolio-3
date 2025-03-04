@@ -15,6 +15,7 @@ import {
 	SiCss,
 	SiDocker,
 	SiExpress,
+	SiFastapi,
 	SiFlask,
 	SiGit,
 	SiGithub,
@@ -81,6 +82,7 @@ export enum Technology {
 	EXPRESS,
 	NESTJS,
 	FLASK,
+	FASTAPI,
 	SPRING,
 	KTOR,
 
@@ -176,6 +178,10 @@ export const technologyAttributes: Record<Technology, TechnologyAttributes> = {
 	[Technology.FLASK]: {
 		label: 'Flask',
 		icon: SiFlask,
+	},
+	[Technology.FASTAPI]: {
+		label: 'FastAPI',
+		icon: SiFastapi,
 	},
 	[Technology.SPRING]: {
 		label: 'Spring',

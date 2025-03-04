@@ -13,7 +13,7 @@ import { cn } from '../../../../../../lib/utils';
 
 export type GalleryProps = {
 	className?: string;
-	images: (string | { src: string; alt?: string })[];
+	images: (string | { src: string; alt?: string; firstFrame?: string })[];
 };
 
 const Gallery: FC<GalleryProps> = ({ images, className }) => {
@@ -31,28 +31,18 @@ const Gallery: FC<GalleryProps> = ({ images, className }) => {
 								global: 'rounded-lg w-full h-[216px] cursor-pointer',
 							}}
 							fill
-							src={
-								typeof image ===
-								'string'
-									? image
-									: image.src
+							src={typeof image === 'string' ? image : image.src}
+							firstFrame={
+								typeof image === 'object' ? image.firstFrame : undefined
 							}
-							alt={
-								typeof image ===
-								'string'
-									? ''
-									: (image.alt ??
-										'')
-							}
+							alt={typeof image === 'string' ? '' : (image.alt ?? '')}
 							objectFit="contain"
 						/>
 					</DialogTrigger>
 					<DialogContent className="flex flex-col w-screen max-w-screen tablet:max-w-7xl h-[65vh] pl-2 pr-10">
 						<DialogTitle hidden>
-							{typeof image ===
-							'object'
-								? (image.alt ??
-									'Image Preview')
+							{typeof image === 'object'
+								? (image.alt ?? 'Image Preview')
 								: 'Image Preview'}
 						</DialogTitle>
 						<Image
@@ -62,29 +52,15 @@ const Gallery: FC<GalleryProps> = ({ images, className }) => {
 								global: 'rounded-lg w-full h-full cursor-pointer',
 							}}
 							fill
-							src={
-								typeof image ===
-								'string'
-									? image
-									: image.src
-							}
-							alt={
-								typeof image ===
-								'string'
-									? ''
-									: (image.alt ??
-										'')
-							}
+							src={typeof image === 'string' ? image : image.src}
+							alt={typeof image === 'string' ? '' : (image.alt ?? '')}
 							objectFit="contain"
 						/>
-						{typeof image === 'object' &&
-							image.alt && (
-								<p className="text-center text-sm h-fit grow-0 text-foreground-secondary mt-2">
-									{
-										image.alt
-									}
-								</p>
-							)}
+						{typeof image === 'object' && image.alt && (
+							<p className="text-center text-sm h-fit grow-0 text-foreground-secondary mt-2">
+								{image.alt}
+							</p>
+						)}
 					</DialogContent>
 				</Dialog>
 			)),
@@ -92,12 +68,7 @@ const Gallery: FC<GalleryProps> = ({ images, className }) => {
 	);
 
 	return (
-		<div
-			className={cn(
-				'grid grid-cols-1 tablet:grid-cols-2 gap-4',
-				className,
-			)}
-		>
+		<div className={cn('grid grid-cols-1 tablet:grid-cols-2 gap-4', className)}>
 			{imageElements}
 		</div>
 	);

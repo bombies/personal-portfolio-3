@@ -15,7 +15,7 @@ const navbarItems: { href: string; label: string }[] = [
 	{ label: 'HOME', href: '/' },
 	{ label: 'PROJECTS', href: '/projects' },
 	{ label: 'ABOUT', href: '/about' },
-	{ label: 'CONTACT', href: '/' },
+	{ label: 'CONTACT', href: '/contact' },
 ];
 
 const NavbarMenu: FC = () => {
@@ -24,33 +24,14 @@ const NavbarMenu: FC = () => {
 	const items = useMemo(
 		() =>
 			navbarItems.map((item, ordinal) => (
-				<NavbarMenuItem key={`navbaritem#${item.href}#${ordinal}`} {...item} ordinal={ordinal + 1} />
+				<NavbarMenuItem
+					key={`navbaritem#${item.href}#${ordinal}`}
+					{...item}
+					ordinal={ordinal + 1}
+				/>
 			)),
 		[],
 	);
-
-	// useEffect(() => {
-	// 	const mains = document.getElementsByTagName('main');
-
-	// 	for (let i = 0; i < mains.length; i++) {
-	// 		const main = mains[i];
-	// 		if (opened) {
-	// 			main.style.overflow = 'hidden';
-	// 			main.style.height = '80vh';
-	// 		} else {
-	// 			main.style.overflow = 'auto';
-	// 			main.style.height = 'fit-content';
-	// 		}
-	// 	}
-
-	// 	return () => {
-	// 		for (let i = 0; i < mains.length; i++) {
-	// 			const main = mains[i];
-	// 			main.style.overflow = 'auto';
-	// 			main.style.height = 'fit-content';
-	// 		}
-	// 	};
-	// }, [opened]);
 
 	return (
 		<AnimatePresence>
@@ -77,7 +58,8 @@ const NavbarMenu: FC = () => {
 					{items}
 					<div className="flex gap-x-6">
 						<BadgeButton href="/AjaniGreenResume.pdf" newTab>
-							<ArrowUpRightIcon size={18} /> <p className="font-mono">resume</p>
+							<ArrowUpRightIcon size={18} />{' '}
+							<p className="font-mono">resume</p>
 						</BadgeButton>
 						<BadgeButton href="https://github.com/bombies" newTab>
 							<SiGithub size={18} /> <p className="font-mono">github</p>

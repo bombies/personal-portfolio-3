@@ -1,3 +1,4 @@
+import SubTitle from '@/components/ui/subtitle';
 import { FC, PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren<{
@@ -7,9 +8,7 @@ type Props = PropsWithChildren<{
 const ArticleSection: FC<Props> = ({ title, children }) => {
 	return (
 		<section className="space-y-4 mb-6">
-			<h3 className="text-secondary font-semibold text-xl">
-				{title}
-			</h3>
+			<SubTitle>{title}</SubTitle>
 			{children}
 		</section>
 	);
