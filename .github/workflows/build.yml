@@ -1,0 +1,45 @@
+name: Build
+
+on:
+    push:
+        branches:
+            - dev
+            - feature/**
+            - features/**
+            - fix/**
+    pull_request:
+        branches:
+            - main
+            - dev
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [20.x]
+        steps:
+            - name: Clone Repository
+              uses: actions/checkout@v3
+            - name: Setup Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: latest
+            - name: Install Dependencies
+              run: |
+                  echo "Installing node dependencies..."
+                  npm i
+            - name: 'Setup Build Cache'
+              uses: actions/cache@v3
+              with:
+                  path: |
+                      ~/.npm
+                      ${{ github.workspace }}/.next/cache
+                  key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
+                  restore-keys: |
+                      ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+            - name: Building Project
+              run: |
+                  cd packages/frontend && \
+                  cd run build
