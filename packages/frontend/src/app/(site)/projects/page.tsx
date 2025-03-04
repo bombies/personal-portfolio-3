@@ -1,6 +1,6 @@
 'use client';
 
-import { containerStaggerVariants, itemStaggerVariants } from '@/app/(site)/(landing)/page';
+import { containerStaggerVariants, itemStaggerVariants } from '@/lib/animation-utils';
 import { motion } from 'motion/react';
 import { FC, useMemo } from 'react';
 
@@ -15,7 +15,7 @@ import { projects } from './data';
 
 const ProjectsPage: FC = () => {
 	const MotionBreadcrumbBuilder = useMemo(() => motion.create(BreadcrumbBuilder), []);
-	
+
 	return (
 		<ProjectPreviewProvider>
 			<MainContainer className="laptop:max-w-[75rem]">
@@ -38,7 +38,10 @@ const ProjectsPage: FC = () => {
 							},
 						]}
 					/>
-					<motion.div variants={itemStaggerVariants} className="flex justify-between items-center shrink-0">
+					<motion.div
+						variants={itemStaggerVariants}
+						className="flex justify-between items-center shrink-0"
+					>
 						<Title>
 							My <span className="text-primary">Projects</span>
 						</Title>

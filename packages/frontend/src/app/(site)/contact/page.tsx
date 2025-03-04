@@ -1,13 +1,13 @@
 'use client';
 
+import MainContainer from '@/components/ui/main-container';
+import { Separator } from '@/components/ui/separator';
+import Title from '@/components/ui/title';
 import {
 	containerStaggerVariants,
 	itemStaggerVariants,
 	itemStaggerVariantsWithShowStagger,
-} from '@/app/(site)/(landing)/page';
-import MainContainer from '@/components/ui/main-container';
-import { Separator } from '@/components/ui/separator';
-import Title from '@/components/ui/title';
+} from '@/lib/animation-utils';
 import { IconType, SiInspire } from '@icons-pack/react-simple-icons';
 import { MailIcon } from 'lucide-react';
 import { motion } from 'motion/react';

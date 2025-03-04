@@ -1,11 +1,5 @@
 'use client';
 
-import {
-	buildNestedStaggerVariant,
-	containerStaggerVariants,
-	itemStaggerVariants,
-	itemStaggerVariantsWithShowStagger,
-} from '@/app/(site)/(landing)/page';
 import { Technology, technologyAttributes } from '@/app/(site)/projects/types';
 import { Badge } from '@/components/ui/badge';
 import BreadcrumbBuilder from '@/components/ui/breadcrumb-builder';
@@ -13,6 +7,12 @@ import Image from '@/components/ui/image';
 import MainContainer from '@/components/ui/main-container';
 import { Separator } from '@/components/ui/separator';
 import Title from '@/components/ui/title';
+import {
+	buildNestedStaggerVariant,
+	containerStaggerVariants,
+	itemStaggerVariants,
+	itemStaggerVariantsWithShowStagger,
+} from '@/lib/animation-utils';
 import { motion } from 'motion/react';
 import { FC, useMemo } from 'react';
 
@@ -86,7 +86,8 @@ const AboutMePage: FC = () => {
 									variant="outline"
 									className="text-sm gap-3 font-mono"
 								>
-									<attribs.icon className="!size-[18px]" /> {attribs.label}
+									<attribs.icon className="!size-[18px]" />{' '}
+									{attribs.label}
 								</MotionBadge>
 							);
 						})}

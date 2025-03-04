@@ -34,13 +34,12 @@ const ProjectPageDetails: FC<Props> = ({ project }) => {
 					alt="Project Preview"
 					fill
 					styles={{
-						backgroundColor: dominantColor
-							? `${dominantColor}50`
-							: undefined,
+						backgroundColor: dominantColor ? `${dominantColor}50` : undefined,
 						boxShadow: `0 20px 25px -5px ${dominantColor}15, 0 8px 10px -6px ${dominantColor}15`,
 					}}
 					classNames={{
-						container: 'place-self-center flex backdrop-blur-md w-full h-96 rounded-md border border-border transition-colors',
+						container:
+							'place-self-center flex backdrop-blur-md w-full h-96 rounded-md border border-border transition-colors',
 					}}
 					objectFit="contain"
 				/>
@@ -65,41 +64,25 @@ const ProjectPageDetails: FC<Props> = ({ project }) => {
 							newTab
 							href={link.href}
 						>
-							{link.icon ?? (
-								<ArrowUpRightIcon
-									size={
-										18
-									}
-								/>
-							)}{' '}
-							{link.label}
+							{link.icon ?? <ArrowUpRightIcon size={18} />} {link.label}
 						</BadgeButton>
 					))}
 				</div>
 			) : undefined}
 			<Separator />
 			<div className="grid grid-cols-2 gap-y-8 gap-x-4">
-				<ProjectDetailsRow
-					label="Category"
-					value={project.details.category}
-				/>
+				<ProjectDetailsRow label="Category" value={project.details.category} />
 				<ProjectDetailsRow
 					label="Year"
 					value={
-						typeof project.details.year ===
-						'number'
+						typeof project.details.year === 'number'
 							? project.details.year
 							: `${project.details.year[0]} - ${project.details.year[1] === null ? 'Present' : project.details.year[1]}`
 					}
 				/>
-				<ProjectDetailsRow
-					label="Customer"
-					value={project.details.customer}
-				/>
+				<ProjectDetailsRow label="Customer" value={project.details.customer} />
 			</div>
-			<p className="mt-6 text-lg">
-				{project.details.shortDescription}
-			</p>
+			<p className="mt-6 text-lg">{project.details.shortDescription}</p>
 			{project.techStack?.length ? (
 				<Accordion type="single" collapsible>
 					<AccordionItem value="tech-stack">
@@ -107,29 +90,19 @@ const ProjectPageDetails: FC<Props> = ({ project }) => {
 							Tech Stack
 						</AccordionTrigger>
 						<AccordionContent className="flex flex-wrap gap-2">
-							{project.techStack.map(
-								(
-									technology,
-									idx,
-								) => {
-									const attributes =
-										technologyAttributes[
-											technology
-										];
-									return (
-										<Badge
-											key={`tech_stack#${project.name}#${technology}#${idx}`}
-											variant="outline"
-											className="text-sm tablet:text-lg"
-										>
-											<attributes.icon className="!size-4 tablet:!size-5 mr-1" />
-											{
-												attributes.label
-											}
-										</Badge>
-									);
-								},
-							)}
+							{project.techStack.map((technology, idx) => {
+								const attributes = technologyAttributes[technology];
+								return (
+									<Badge
+										key={`tech_stack#${project.name}#${technology}#${idx}`}
+										variant="outline"
+										className="text-sm tablet:text-lg"
+									>
+										<attributes.icon className="!size-4 tablet:!size-5 mr-1" />
+										{attributes.label}
+									</Badge>
+								);
+							})}
 						</AccordionContent>
 					</AccordionItem>
 				</Accordion>
@@ -139,12 +112,8 @@ const ProjectPageDetails: FC<Props> = ({ project }) => {
 			{project.galleryImages?.length ? (
 				<>
 					<Separator className="my-6" />
-					<h3 className="text-3xl text-secondary font-bold mb-6">
-						Gallery
-					</h3>
-					<Gallery
-						images={project.galleryImages}
-					/>
+					<h3 className="text-3xl text-secondary font-bold mb-6">Gallery</h3>
+					<Gallery images={project.galleryImages} />
 				</>
 			) : undefined}
 		</>
@@ -159,9 +128,7 @@ type ProjectDetailsRowProps = {
 const ProjectDetailsRow: FC<ProjectDetailsRowProps> = ({ label, value }) => {
 	return (
 		<>
-			<h3 className="uppercase font-bold tracking-widest text-primary">
-				{label}
-			</h3>
+			<h3 className="uppercase font-bold tracking-widest text-primary">{label}</h3>
 			<p className={`font-mono`}>{value}</p>
 		</>
 	);

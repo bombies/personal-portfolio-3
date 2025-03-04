@@ -106,6 +106,7 @@ const firaMono = Fira_Mono({
 	variable: '--font-fira-mono',
 	display: 'swap',
 	weight: ['400', '500', '700'],
+	subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
@@ -120,10 +121,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<ViewTransitions>
-			<html
-				lang="en"
-				className={`${sfProDisplay.variable} ${firaMono.variable}`}
-			>
+			<html lang="en" className={`${sfProDisplay.variable} ${firaMono.variable}`}>
 				<body className="antialiased">
 					<Navbar />
 					{children}

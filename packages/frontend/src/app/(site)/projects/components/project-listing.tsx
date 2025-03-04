@@ -3,7 +3,7 @@
 import {
 	itemStaggerVariants,
 	itemStaggerVariantsWithShowStagger,
-} from '@/app/(site)/(landing)/page';
+} from '@/lib/animation-utils';
 import { motion } from 'motion/react';
 import { FC, useMemo } from 'react';
 

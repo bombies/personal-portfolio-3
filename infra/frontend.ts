@@ -3,10 +3,10 @@ export const frontend = new sst.aws.Nextjs("Frontend", {
     dev: {
         command: "bun run dev",
     },
-    openNextVersion: '3.4.2',
+    openNextVersion: '3.5.1',
     domain:
 		$app.stage === 'production'
-			? 'p3.ajani.me'
+			? 'ajani.me'
 			: undefined
 
 })

@@ -1,4 +1,5 @@
 import DreamLoggerContent from '@/app/(site)/projects/components/projects-content/dreamlogger-content';
+import EarleWilsonContent from '@/app/(site)/projects/components/projects-content/earle-wilson-content';
 import GreensPubContent from '@/app/(site)/projects/components/projects-content/greenspub-content';
 import MDGPTContent from '@/app/(site)/projects/components/projects-content/md-gpt-content';
 import { SiGithub } from '@icons-pack/react-simple-icons';
@@ -312,7 +313,49 @@ export const projects: Project[] = [
 				icon: <GlobeIcon size={18} />,
 			},
 		],
-		longDescription: <></>,
+		techStack: [
+			Technology.REACT,
+			Technology.NEXTJS,
+			Technology.TYPESCRIPT,
+			Technology.TAILWINDCSS,
+			Technology.SASS,
+			Technology.GITHUB_ACTIONS,
+			Technology.POSTGRESQL,
+			Technology.REDIS,
+			Technology.NGINX,
+			Technology.SENTRY,
+		],
+		longDescription: <EarleWilsonContent />,
+		galleryImages: [
+			{
+				src: 'https://i.imgur.com/WGZfNiS.png',
+				alt: 'Earle & Wilson Home Page',
+			},
+			{
+				src: 'https://i.imgur.com/QZjbzGi.png',
+				alt: 'Earle & Wilson Contact Form',
+			},
+			{
+				src: 'https://i.imgur.com/Bxte3g3.gif',
+				alt: 'Earle & Wilson Practice Areas',
+			},
+			{
+				src: 'https://i.imgur.com/Xl3pHpn.png',
+				alt: 'Earle & Wilson Example Practice Area',
+			},
+			{
+				src: 'https://i.imgur.com/OeqdIa7.png',
+				alt: 'Earle & Wilson Team Page',
+			},
+			{
+				src: 'https://i.imgur.com/3VvMnLn.gif',
+				alt: 'Earle & Wilson Example Team Member',
+			},
+			{
+				src: 'https://i.imgur.com/qciq5Zd.gif',
+				alt: 'Earle & Wilson Custom CMS',
+			},
+		],
 	},
 ];
 
