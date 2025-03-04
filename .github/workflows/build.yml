@@ -29,7 +29,7 @@ jobs:
             - name: Install Dependencies
               run: |
                   echo "Installing node dependencies..."
-                  npm i
+                  bun i
             - name: 'Setup Build Cache'
               uses: actions/cache@v3
               with:
@@ -42,4 +42,4 @@ jobs:
             - name: Building Project
               run: |
                   cd packages/frontend && \
-                  cd run build
+                  bun run build
