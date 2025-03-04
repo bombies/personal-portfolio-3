@@ -1,6 +1,3 @@
-/**
- * Taken from https://github.com/JesusAguilarAliaga/react-extract-colors/blob/main/src/hooks/useExtractColors.ts
- */
 'use client';
 
 import { useLocalCache } from '@/lib/hooks/local-storage/useLocalCache';
@@ -12,26 +9,6 @@ import {
 	extractDominantColors,
 	formatColors,
 } from './helpers';
-
-/**
- * Taken from https://github.com/JesusAguilarAliaga/react-extract-colors/blob/main/src/hooks/useExtractColors.ts
- */
-
-/**
- * Taken from https://github.com/JesusAguilarAliaga/react-extract-colors/blob/main/src/hooks/useExtractColors.ts
- */
-
-/**
- * Taken from https://github.com/JesusAguilarAliaga/react-extract-colors/blob/main/src/hooks/useExtractColors.ts
- */
-
-/**
- * Taken from https://github.com/JesusAguilarAliaga/react-extract-colors/blob/main/src/hooks/useExtractColors.ts
- */
-
-/**
- * Taken from https://github.com/JesusAguilarAliaga/react-extract-colors/blob/main/src/hooks/useExtractColors.ts
- */
 
 /**
  * Taken from https://github.com/JesusAguilarAliaga/react-extract-colors/blob/main/src/hooks/useExtractColors.ts
