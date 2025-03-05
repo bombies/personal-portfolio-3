@@ -1,3 +1,5 @@
+import CookieConsentBanner from '@/components/cookie-consent-banner';
+import GoogleAnalyticsProvider from '@/components/providers/google-analytics-provider';
 import type { Metadata } from 'next';
 import { ViewTransitions } from 'next-view-transitions';
 import { Fira_Mono } from 'next/font/google';
@@ -122,10 +124,13 @@ export default function RootLayout({
 	return (
 		<ViewTransitions>
 			<html lang="en" className={`${sfProDisplay.variable} ${firaMono.variable}`}>
-				<body className="antialiased">
-					<Navbar />
-					{children}
-				</body>
+				<GoogleAnalyticsProvider>
+					<body className="antialiased">
+						<Navbar />
+						{children}
+						<CookieConsentBanner />
+					</body>
+				</GoogleAnalyticsProvider>
 			</html>
 		</ViewTransitions>
 	);
