@@ -124,13 +124,14 @@ export default function RootLayout({
 	return (
 		<ViewTransitions>
 			<html lang="en" className={`${sfProDisplay.variable} ${firaMono.variable}`}>
-				<GoogleAnalyticsProvider>
-					<body className="antialiased">
-						<Navbar />
-						{children}
-						<CookieConsentBanner />
-					</body>
-				</GoogleAnalyticsProvider>
+				<body className="antialiased">
+					<Navbar />
+					{children}
+					<CookieConsentBanner />
+				</body>
+				<GoogleAnalyticsProvider
+					gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!}
+				/>
 			</html>
 		</ViewTransitions>
 	);

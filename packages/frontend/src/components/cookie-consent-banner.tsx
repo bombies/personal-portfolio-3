@@ -13,9 +13,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { FC } from 'react';
 
 const CookieConsentBanner: FC = () => {
-	const { cookieConsent, consentAwaiting, initConsentValues } = useCookieConsent();
-
-	console.log(cookieConsent, consentAwaiting());
+	const { consentAwaiting, initConsentValues } = useCookieConsent();
 
 	return (
 		<AnimatePresence>

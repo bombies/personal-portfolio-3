@@ -3,7 +3,6 @@
 import { useLocalStorage } from '@/lib/hooks/local-storage/useLocalStorage';
 import { useCallback, useEffect, useState } from 'react';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 type CookieConsent = {
 	cookieTypes: {
 		analytics: boolean;
@@ -18,6 +17,30 @@ const defaultConsent: CookieConsent = {
 	cookieTypes: {
 		analytics: false,
 	},
+};
+
+const handleGoogleAnalyticsConsentGrant = () => {
+	const gtag = window.gtag;
+	if (!gtag) return;
+
+	gtag('consent', 'update', {
+		ad_user_data: 'granted',
+		ad_personalization: 'granted',
+		ad_storage: 'granted',
+		analytics_storage: 'granted',
+	});
+};
+
+const handleGoogleAnalyticsConsentDeny = () => {
+	const gtag = window.gtag;
+	if (!gtag) return;
+
+	gtag('consent', 'update', {
+		ad_user_data: 'denied',
+		ad_personalization: 'denied',
+		ad_storage: 'denied',
+		analytics_storage: 'denied',
+	});
 };
 
 export const useCookieConsent = () => {
@@ -79,6 +102,10 @@ export const useCookieConsent = () => {
 				acceptedAt: Date.now(),
 				updatedAt: Date.now(),
 			});
+
+			if (consentValues.analytics) {
+				handleGoogleAnalyticsConsentGrant();
+			}
 		},
 		[],
 	);
@@ -115,16 +142,29 @@ export const useCookieConsent = () => {
 					updatedAt: Date.now(),
 				};
 			});
+
+			if (consentValues.analytics) {
+				handleGoogleAnalyticsConsentGrant();
+			} else {
+				handleGoogleAnalyticsConsentDeny();
+			}
 		},
 		[],
 	);
 
 	const resetConsent = useCallback(() => {
 		setConsent(defaultConsent);
+		handleGoogleAnalyticsConsentDeny();
 	}, []);
 
 	const setState = useCallback((newState: CookieConsent) => {
 		setConsent(newState);
+
+		if (newState.cookieTypes.analytics) {
+			handleGoogleAnalyticsConsentGrant();
+		} else {
+			handleGoogleAnalyticsConsentDeny();
+		}
 	}, []);
 
 	useEffect(() => {
