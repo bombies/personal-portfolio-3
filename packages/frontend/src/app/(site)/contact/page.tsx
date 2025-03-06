@@ -18,6 +18,12 @@ const contactOptions: ContactCardProps[] = [
 	{
 		icon: MailIcon,
 		label: 'Email',
+		value: 'contact@ajani.me',
+		href: 'mailto:contact@ajani.me',
+	},
+	{
+		icon: MailIcon,
+		label: 'Email',
 		value: 'ajani.green@outlook.com',
 		href: 'mailto:ajani.green@outlook.com',
 	},
