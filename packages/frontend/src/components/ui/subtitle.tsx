@@ -7,7 +7,7 @@ type Props = PropsWithChildren<{
 
 const SubTitle: FC<Props> = ({ className, children }) => {
 	return (
-		<h3 className={cn('text-secondary font-semibold text-xl', className)}>
+		<h3 className={cn('text-secondary font-semibold text-2xl', className)}>
 			{children}
 		</h3>
 	);

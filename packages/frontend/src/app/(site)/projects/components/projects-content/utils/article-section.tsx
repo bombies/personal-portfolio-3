@@ -9,15 +9,16 @@ import { FC, PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren<{
 	title: string;
+	titleClassName?: string;
 	collapsible?: boolean;
 }>;
 
-const ArticleSection: FC<Props> = ({ title, children, collapsible }) => {
+const ArticleSection: FC<Props> = ({ title, titleClassName, children, collapsible }) => {
 	return collapsible ? (
 		<Accordion type="single" collapsible>
 			<AccordionItem value="article-title">
 				<AccordionTrigger>
-					<SubTitle>{title}</SubTitle>
+					<SubTitle className={titleClassName}>{title}</SubTitle>
 				</AccordionTrigger>
 				<AccordionContent>
 					<section>
@@ -28,7 +29,7 @@ const ArticleSection: FC<Props> = ({ title, children, collapsible }) => {
 		</Accordion>
 	) : (
 		<section className="space-y-4 mb-6">
-			<SubTitle>{title}</SubTitle>
+			<SubTitle className={titleClassName}>{title}</SubTitle>
 			{children}
 		</section>
 	);

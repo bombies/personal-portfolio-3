@@ -1,6 +1,7 @@
 import { GalleryProps } from '@/app/(site)/projects/components/projects-content/utils/gallery';
 import {
 	IconType,
+	SiAmazoncloudwatch,
 	SiAmazondynamodb,
 	SiAmazonec2,
 	SiAmazonecs,
@@ -39,7 +40,9 @@ import {
 	SiSass,
 	SiSentry,
 	SiSpring,
+	SiSst,
 	SiTailwindcss,
+	SiTrpc,
 	SiTypescript,
 } from '@icons-pack/react-simple-icons';
 import { ReactNode } from 'react';
@@ -85,11 +88,13 @@ export enum Technology {
 	FASTAPI,
 	SPRING,
 	KTOR,
+	TRPC,
 
 	// Libraries
 	TAILWINDCSS,
 
 	// Tools
+	SST,
 	DOCKER,
 	GIT,
 	GITHUB,
@@ -111,6 +116,10 @@ export enum Technology {
 	EC2,
 	ECS,
 	FARGATE,
+	EVENT_BRIDGE,
+	IOT_CORE,
+	CLOUDFRONT,
+	CLOUDWATCH,
 }
 
 type TechnologyAttributes = {
@@ -195,6 +204,14 @@ export const technologyAttributes: Record<Technology, TechnologyAttributes> = {
 		label: 'Tailwind CSS',
 		icon: SiTailwindcss,
 	},
+	[Technology.TRPC]: {
+		label: 'tRPC',
+		icon: SiTrpc,
+	},
+	[Technology.SST]: {
+		label: 'SST',
+		icon: SiSst,
+	},
 	[Technology.DOCKER]: {
 		label: 'Docker',
 		icon: SiDocker,
@@ -278,5 +295,21 @@ export const technologyAttributes: Record<Technology, TechnologyAttributes> = {
 	[Technology.FARGATE]: {
 		label: 'AWS Fargate',
 		icon: SiAwsfargate,
+	},
+	[Technology.EVENT_BRIDGE]: {
+		label: 'AWS EventBridge',
+		icon: SiAmazonwebservices,
+	},
+	[Technology.IOT_CORE]: {
+		label: 'AWS IoT Core',
+		icon: SiAmazonwebservices,
+	},
+	[Technology.CLOUDFRONT]: {
+		label: 'AWS CloudFront',
+		icon: SiAmazonwebservices,
+	},
+	[Technology.CLOUDWATCH]: {
+		label: 'AWS CloudWatch',
+		icon: SiAmazoncloudwatch,
 	},
 };

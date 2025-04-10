@@ -6,10 +6,147 @@ import { SiGithub } from '@icons-pack/react-simple-icons';
 import { GlobeIcon } from 'lucide-react';
 
 import { urlify } from '../../../lib/utils';
+import LumiContent from './components/projects-content/lumi-content';
 import RobertifyContent from './components/projects-content/robertify-content';
 import { Project, Technology } from './types';
 
 export const projects: Project[] = [
+	{
+		name: 'Lumi',
+		coverImage: 'https://i.imgur.com/EwcdLPg.png',
+		details: {
+			category: 'Web Development',
+			year: [2025, null],
+			customer: 'Personal Project',
+			shortDescription:
+				'Lumi is a space for you and your partner to share your moments, affirm each other and keep up with your music tastes and recommendations.',
+		},
+		links: [
+			{
+				icon: <SiGithub size={18} />,
+				href: 'https://github.com/bombies/lumi',
+				label: 'Source Code',
+			},
+		],
+		longDescription: <LumiContent />,
+		galleryImages: [
+			{
+				src: 'https://i.imgur.com/wn2Nt4J.png',
+				alt: 'Lumi Landing Page',
+			},
+			{
+				src: 'https://i.imgur.com/Axfoa50.png',
+				alt: 'Lumi Login Page',
+			},
+			{
+				src: 'https://i.imgur.com/iBOxSAt.png',
+				alt: 'Lumi Home Page (1)',
+			},
+			{
+				src: 'https://i.imgur.com/HsZG5Mc.png',
+				alt: 'Lumi Home Page (2)',
+			},
+			{
+				src: 'https://i.imgur.com/7S3zRr1.png',
+				alt: 'Lumi Home Page (3)',
+			},
+			{
+				src: 'https://i.imgur.com/p16IV6O.png',
+				alt: 'Lumi Affirmations Page',
+			},
+			{
+				src: 'https://i.imgur.com/ttN64iH.png',
+				alt: 'Lumi Manage Affirmations Page',
+			},
+			{
+				src: 'https://i.imgur.com/xmNeZU9.png',
+				alt: 'Lumi Moments Page',
+			},
+			{
+				src: 'https://i.imgur.com/O5LpPpO.png',
+				alt: 'Lumi Upload Moment Page (1)',
+			},
+			{
+				src: 'https://i.imgur.com/myugYiQ.png',
+				alt: 'Lumi Upload Moment Page (2)',
+			},
+			{
+				src: 'https://i.imgur.com/SDtPfdg.png',
+				alt: 'Lumi Moment Watch Page (1)',
+			},
+			{
+				src: 'https://i.imgur.com/y5RhbEm.png',
+				alt: 'Lumi Moment Watch Page (2)',
+			},
+			{
+				src: 'https://i.imgur.com/vex6v3h.png',
+				alt: 'Lumi Tagged Moments Page',
+			},
+			{
+				src: 'https://i.imgur.com/nbwxE9j.png',
+				alt: 'Lumi Music Sharing Page',
+			},
+			{
+				src: 'https://i.imgur.com/0BxYrDd.png',
+				alt: 'Lumi Music Sharing Page - Recommendation History',
+			},
+			{
+				src: 'https://i.imgur.com/kjgap4d.png',
+				alt: 'Lumi Music Sharing Page - Recommendation Rate Details',
+			},
+			{
+				src: 'https://i.imgur.com/OpOPjxe.png',
+				alt: 'Lumi Music Sharing Page - Song Recommendation Picker',
+			},
+			{
+				src: 'https://i.imgur.com/NuIeMDJ.png',
+				alt: 'Lumi Music Sharing Page - Song Recommendation Listen',
+			},
+			{
+				src: 'https://i.imgur.com/FLD449z.png',
+				alt: 'Lumi Music Sharing Page - Song Recommendation Rate',
+			},
+			{
+				src: 'https://i.imgur.com/WNFW2RJ.png',
+				alt: 'Lumi Notifications Management Page',
+			},
+			{
+				src: 'https://i.imgur.com/uF0bNN1.png',
+				alt: 'Lumi Settings Page',
+			},
+			{
+				src: 'https://i.imgur.com/m5pV5iN.png',
+				alt: 'Lumi Relationship Settings Page',
+			},
+			{
+				src: 'https://i.imgur.com/3WpqZpL.jpeg',
+				alt: 'Lumi Example Notification',
+			},
+		],
+		techStack: [
+			Technology.AWS,
+			Technology.SST,
+			Technology.LAMBDA,
+			Technology.DYNAMODB,
+			Technology.POSTGRESQL,
+			Technology.EVENT_BRIDGE,
+			Technology.IOT_CORE,
+			Technology.S3,
+			Technology.CLOUDFRONT,
+			Technology.SQS,
+			Technology.REDIS,
+
+			Technology.TRPC,
+			Technology.NEXTJS,
+			Technology.REACT,
+			Technology.CSS,
+			Technology.TAILWINDCSS,
+
+			Technology.SENTRY,
+			Technology.CLOUDWATCH,
+			Technology.GITHUB_ACTIONS,
+		],
+	},
 	{
 		name: 'Robertify',
 		coverImage: 'https://i.imgur.com/sKrjmkH.png',

@@ -175,6 +175,15 @@
 	::file-selector-button {
 		border-color: var(--color-gray-200, currentColor);
 	}
+
+	.inline-code {
+		font-family: var(--font-fira-mono);
+		background-color: #69c50020;
+		border: 1px solid #ffffff40;
+		border-radius: 0.25rem;
+		padding: 1px 4px;
+		font-size: 14px;
+	}
 }
 
 ::-webkit-scrollbar {
