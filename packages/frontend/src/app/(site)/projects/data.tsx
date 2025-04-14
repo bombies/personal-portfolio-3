@@ -24,7 +24,7 @@ export const projects: Project[] = [
 		links: [
 			{
 				icon: <SiGithub size={18} />,
-				href: 'https://staging.ajani.me',
+				href: 'https://staging.lumi.ajani.me',
 				label: 'Website Public Preview',
 			},
 			{
