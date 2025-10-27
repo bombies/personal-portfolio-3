@@ -25,8 +25,8 @@ export class ClientLocalStorage {
 }
 
 export const useLocalStorage = () => {
-	const [clientLocalStorage, setClientLocalStorage] =
-		useState<ClientLocalStorage | null>(null);
+	const [clientLocalStorage, setClientLocalStorage]
+		= useState<ClientLocalStorage | null>(null);
 
 	useEffect(() => {
 		setClientLocalStorage(new ClientLocalStorage(window.localStorage));

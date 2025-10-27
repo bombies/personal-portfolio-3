@@ -1,6 +1,6 @@
+import type { FC } from 'react';
 import ArticleSection from '@/app/(site)/projects/components/projects-content/utils/article-section';
 import LineSpacer from '@/app/(site)/projects/components/projects-content/utils/line-spacer';
-import { FC } from 'react';
 
 const EarleWilsonContent: FC = () => {
 	return (

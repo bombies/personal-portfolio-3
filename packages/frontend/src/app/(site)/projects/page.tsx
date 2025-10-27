@@ -1,8 +1,9 @@
 'use client';
 
-import { containerStaggerVariants, itemStaggerVariants } from '@/lib/animation-utils';
+import type { FC } from 'react';
 import { motion } from 'motion/react';
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
+import { containerStaggerVariants, itemStaggerVariants } from '@/lib/animation-utils';
 
 import BreadcrumbBuilder from '../../../components/ui/breadcrumb-builder';
 import MainContainer from '../../../components/ui/main-container';
@@ -43,7 +44,9 @@ const ProjectsPage: FC = () => {
 						className="flex justify-between items-center shrink-0"
 					>
 						<Title>
-							My <span className="text-primary">Projects</span>
+							My
+							{' '}
+							<span className="text-primary">Projects</span>
 						</Title>
 						<div className="bg-primary/10 border border-border rounded-full size-10 flex justify-center items-center">
 							<span className="font-mono font-bold">{projects.length}</span>

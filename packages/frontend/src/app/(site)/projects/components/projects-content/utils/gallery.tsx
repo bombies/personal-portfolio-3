@@ -1,14 +1,17 @@
 'use client';
 
+import type { FC } from 'react';
+import type {
+	CarouselApi,
+} from '@/components/ui/carousel';
+import { useEffect, useMemo, useState } from 'react';
 import {
 	Carousel,
-	CarouselApi,
 	CarouselContent,
 	CarouselItem,
 	CarouselNext,
 	CarouselPrevious,
 } from '@/components/ui/carousel';
-import { FC, useEffect, useMemo, useState } from 'react';
 
 import {
 	Dialog,
@@ -88,7 +91,7 @@ const Gallery: FC<GalleryProps> = ({ images, className }) => {
 		<>
 			<Dialog
 				open={galleryDialogOpen}
-				onOpenChange={val => {
+				onOpenChange={(val) => {
 					if (!val) setCurrentImage(undefined);
 					setGalleryDialogOpen(val);
 				}}

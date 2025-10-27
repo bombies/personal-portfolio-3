@@ -1,11 +1,12 @@
 'use client';
 
+import type { FC } from 'react';
+import { motion } from 'motion/react';
+import { useMemo } from 'react';
 import {
 	itemStaggerVariants,
 	itemStaggerVariantsWithShowStagger,
 } from '@/lib/animation-utils';
-import { motion } from 'motion/react';
-import { FC, useMemo } from 'react';
 
 import { projects } from '../data';
 import ProjectItem from './project-item';

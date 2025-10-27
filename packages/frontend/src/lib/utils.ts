@@ -1,4 +1,5 @@
-import { type ClassValue, clsx } from 'clsx';
+import type { ClassValue } from 'clsx';
+import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 export function cn(...inputs: ClassValue[]) {
@@ -7,14 +8,14 @@ export function cn(...inputs: ClassValue[]) {
 
 export function urlify(s: string): string {
 	return (
-		'/' +
-		encodeURI(
-			s
-				.toLowerCase()
-				.replace(/[^\w\s]/g, '')
-				.replace(/\s{2,}/g, ' ')
-				.replace(/\s/g, '-'),
-		)
+		`/${
+			encodeURI(
+				s
+					.toLowerCase()
+					.replace(/[^\w\s]/g, '')
+					.replace(/\s{2,}/g, ' ')
+					.replace(/\s/g, '-'),
+			)}`
 	);
 }
 

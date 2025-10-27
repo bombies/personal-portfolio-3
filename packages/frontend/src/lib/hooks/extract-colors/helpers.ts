@@ -1,13 +1,13 @@
-import { ExtractColorOptions } from './useExtractColors';
+import type { ExtractColorOptions } from './useExtractColors';
 
 export const defaultColour = '#69c500';
 
 export const defaultExtractColorOptions: ExtractColorOptions = {
-    maxColors: 3,
-    format: 'rgba',
-    maxSize: 18,
-    colorSimilarityThreshold: 50,
-    sortBy: 'dominance',
+	maxColors: 3,
+	format: 'rgba',
+	maxSize: 18,
+	colorSimilarityThreshold: 50,
+	sortBy: 'dominance',
 };
 
 export type ColorMap = { [key: string]: number };
@@ -84,7 +84,7 @@ export async function extractDominantColors(
 			);
 
 			const colors: Color[] = Object.keys(colorMap)
-				.map(color => {
+				.map((color) => {
 					const [r, g, b, a] = color
 						.split(',')
 						.map(Number);
@@ -94,8 +94,8 @@ export async function extractDominantColors(
 						b,
 						a,
 					});
-					const { s, v } =
-						parseHsvString(hsvToString);
+					const { s, v }
+						= parseHsvString(hsvToString);
 					return {
 						r,
 						g,
@@ -122,10 +122,10 @@ export async function extractDominantColors(
 			}
 
 			resolve({
-				dominantColor: dominantColor,
-				darkerColor: darkerColor,
-				lighterColor: lighterColor,
-				colors: colors,
+				dominantColor,
+				darkerColor,
+				lighterColor,
+				colors,
 			});
 		};
 
@@ -350,9 +350,9 @@ const parseHsvString = (
 		throw new Error('Invalid HSV string format');
 	}
 
-	const h = parseInt(match[1], 10) / 360;
-	const s = parseInt(match[2], 10) / 100;
-	const v = parseInt(match[3], 10) / 100;
+	const h = Number.parseInt(match[1], 10) / 360;
+	const s = Number.parseInt(match[2], 10) / 100;
+	const v = Number.parseInt(match[3], 10) / 100;
 
 	return { h, s, v };
 };
@@ -385,8 +385,8 @@ function countColors(
 			for (const key in uniqueColors) {
 				const existingColor = uniqueColors[key];
 				if (
-					colorDistance(newColor, existingColor) <
-					colorSimilarityThreshold
+					colorDistance(newColor, existingColor)
+					< colorSimilarityThreshold
 				) {
 					if (sortBy === 'dominance') {
 						colorMap[key]++;

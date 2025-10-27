@@ -1,9 +1,9 @@
 'use client';
 
-import { containerStaggerVariants, itemStaggerVariants } from '@/lib/animation-utils';
 import { ArrowRightIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useMemo } from 'react';
+import { containerStaggerVariants, itemStaggerVariants } from '@/lib/animation-utils';
 
 import { Badge } from '../../../components/ui/badge';
 import BadgeButton from '../../../components/ui/badge-button';
@@ -32,7 +32,9 @@ export default function Home() {
 					className="text-6xl laptop:text-9xl font-bold text-center"
 					variants={itemStaggerVariants}
 				>
-					Ajani <span className="text-primary">Green</span>
+					Ajani
+					{' '}
+					<span className="text-primary">Green</span>
 				</motion.h1>
 				<motion.p
 					className="text-center laptop:text-xl text-foreground-secondary"

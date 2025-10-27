@@ -1,7 +1,7 @@
 'use client';
 
-import { useLocalStorage } from '@/lib/hooks/local-storage/useLocalStorage';
 import { useCallback, useEffect, useState } from 'react';
+import { useLocalStorage } from '@/lib/hooks/local-storage/useLocalStorage';
 
 type CookieConsent = {
 	cookieTypes: {
@@ -121,7 +121,7 @@ export const useCookieConsent = () => {
 
 	const updateConsent = useCallback(
 		(consentValues: Partial<CookieConsent['cookieTypes']>) => {
-			setConsent(prev => {
+			setConsent((prev) => {
 				if (!prev) {
 					return {
 						cookieTypes: {

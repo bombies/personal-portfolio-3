@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import NavbarBrand from './navbar-brand';
 import NavbarHamburger from './navbar-hamburger';

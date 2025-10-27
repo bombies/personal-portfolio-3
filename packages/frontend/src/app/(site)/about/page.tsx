@@ -1,5 +1,7 @@
 'use client';
 
+import type { FC } from 'react';
+import { motion } from 'motion/react';
 import { Technology, technologyAttributes } from '@/app/(site)/projects/types';
 import { Badge } from '@/components/ui/badge';
 import BreadcrumbBuilder from '@/components/ui/breadcrumb-builder';
@@ -13,13 +15,11 @@ import {
 	itemStaggerVariants,
 	itemStaggerVariantsWithShowStagger,
 } from '@/lib/animation-utils';
-import { motion } from 'motion/react';
-import { FC, useMemo } from 'react';
 
 const AboutMePage: FC = () => {
-	const MotionTitle = useMemo(() => motion.create(Title), []);
-	const MotionSeparator = useMemo(() => motion.create(Separator), []);
-	const MotionBadge = useMemo(() => motion.create(Badge), []);
+	const MotionTitle = motion.create(Title);
+	const MotionSeparator = motion.create(Separator);
+	const MotionBadge = motion.create(Badge);
 
 	return (
 		<MainContainer className="flex-col pt-12 laptop:h-[calc(100vh-5.5rem)] tablet:pt-24 laptop:pt-24">
@@ -46,7 +46,9 @@ const AboutMePage: FC = () => {
 					className="space-y-6"
 				>
 					<MotionTitle variants={itemStaggerVariants}>
-						About <span className="text-primary">Me</span>
+						About
+						{' '}
+						<span className="text-primary">Me</span>
 					</MotionTitle>
 					<MotionSeparator variants={itemStaggerVariants} />
 					<motion.p variants={itemStaggerVariants}>
@@ -86,7 +88,8 @@ const AboutMePage: FC = () => {
 									variant="outline"
 									className="text-sm gap-3 font-mono"
 								>
-									<attribs.icon className="!size-[18px]" />{' '}
+									<attribs.icon className="!size-[18px]" />
+									{' '}
 									{attribs.label}
 								</MotionBadge>
 							);
@@ -101,7 +104,7 @@ const AboutMePage: FC = () => {
 					src="/me.jpeg"
 					alt="Me :)"
 					classNames={{
-						global: 'rounded-lg shrink-0 w-full place-self-center tablet:size-96 aspect-9/10 border border-border',
+						global: 'rounded-lg shrink-0 w-full place-self-center laptop:place-self-start tablet:size-96 aspect-9/10 border border-border',
 					}}
 					fill
 					objectFit="cover"

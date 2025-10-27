@@ -1,11 +1,11 @@
 'use client';
 
-import { Project } from '@/app/(site)/projects/types';
-import { defaultColour } from '@/lib/hooks/extract-colors/helpers';
-import { useExtractColors } from '@/lib/hooks/extract-colors/useExtractColors';
+import type { FC } from 'react';
+import type { Project } from '@/app/(site)/projects/types';
 import { AnimatePresence, motion } from 'motion/react';
 import { useTransitionRouter } from 'next-view-transitions';
-import { FC } from 'react';
+import { defaultColour } from '@/lib/hooks/extract-colors/helpers';
+import { useExtractColors } from '@/lib/hooks/extract-colors/useExtractColors';
 
 import { Separator } from '../../../../components/ui/separator';
 import { slideRight } from '../../../../lib/page-transitions';
@@ -33,7 +33,7 @@ const ProjectItem: FC<ProjectItemProps> = ({ project, ordinal }) => {
 			<AnimatePresence>
 				<a
 					href={`/projects${urlify(project.name)}`}
-					onClick={e => {
+					onClick={(e) => {
 						e.preventDefault();
 						router.push(`/projects${urlify(project.name)}`, {
 							onTransitionReady: slideRight,
@@ -48,7 +48,8 @@ const ProjectItem: FC<ProjectItemProps> = ({ project, ordinal }) => {
 							exit={{ height: 0 }}
 							style={{ backgroundColor: dominantColor ?? defaultColour }}
 							className="w-[2px]"
-						></motion.span>
+						>
+						</motion.span>
 					)}
 					{project.name}
 				</a>

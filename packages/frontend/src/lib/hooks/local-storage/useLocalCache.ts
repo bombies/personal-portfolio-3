@@ -1,12 +1,13 @@
 'use client';
 
-import {
+import type {
 	ClientLocalStorage,
-	useLocalStorage,
 } from '@/lib/hooks/local-storage/useLocalStorage';
 import { useEffect, useState } from 'react';
+import {
+	useLocalStorage,
+} from '@/lib/hooks/local-storage/useLocalStorage';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 class ClientLocalCache {
 	private static instance: ClientLocalCache;
 	private cache: Record<string, { data: any; expiresAt?: number }> = {};
@@ -71,8 +72,8 @@ class ClientLocalCache {
 	}
 
 	private loadFromStorage() {
-		const storedCache =
-			this.localStorage.getItem<Record<string, { data: any; expiresAt?: number }>>(
+		const storedCache
+			= this.localStorage.getItem<Record<string, { data: any; expiresAt?: number }>>(
 				'localCache',
 			);
 

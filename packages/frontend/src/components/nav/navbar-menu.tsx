@@ -1,11 +1,12 @@
 'use client';
 
+import type { FC } from 'react';
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { ArrowUpRightIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useTransitionRouter } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { slideUp } from '../../lib/page-transitions';
 import BadgeButton from '../ui/badge-button';
@@ -58,11 +59,14 @@ const NavbarMenu: FC = () => {
 					{items}
 					<div className="flex gap-x-6">
 						<BadgeButton href="/AjaniGreenResume.pdf" newTab>
-							<ArrowUpRightIcon size={18} />{' '}
+							<ArrowUpRightIcon size={18} />
+							{' '}
 							<p className="font-mono">resume</p>
 						</BadgeButton>
 						<BadgeButton href="https://github.com/bombies" newTab>
-							<SiGithub size={18} /> <p className="font-mono">github</p>
+							<SiGithub size={18} />
+							{' '}
+							<p className="font-mono">github</p>
 						</BadgeButton>
 					</div>
 				</motion.nav>
@@ -84,7 +88,7 @@ const NavbarMenuItem: FC<NavbarMenuItemProps> = ({ ordinal, href, label }) => {
 	return (
 		<a
 			href={href}
-			onClick={e => {
+			onClick={(e) => {
 				e.preventDefault();
 				setOpened(false);
 
@@ -95,7 +99,10 @@ const NavbarMenuItem: FC<NavbarMenuItemProps> = ({ ordinal, href, label }) => {
 			}}
 		>
 			<p className="font-bold text-5xl flex items-center gap-2">
-				<span className="font-mono font-normal text-xs">#{ordinal}</span>
+				<span className="font-mono font-normal text-xs">
+					#
+					{ordinal}
+				</span>
 				<motion.span
 					initial={{
 						letterSpacing: '0.151em',

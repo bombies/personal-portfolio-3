@@ -1,14 +1,15 @@
+import type { Project } from './types';
+import { SiGithub } from '@icons-pack/react-simple-icons';
+import { GlobeIcon } from 'lucide-react';
 import DreamLoggerContent from '@/app/(site)/projects/components/projects-content/dreamlogger-content';
 import EarleWilsonContent from '@/app/(site)/projects/components/projects-content/earle-wilson-content';
 import GreensPubContent from '@/app/(site)/projects/components/projects-content/greenspub-content';
-import MDGPTContent from '@/app/(site)/projects/components/projects-content/md-gpt-content';
-import { SiGithub } from '@icons-pack/react-simple-icons';
-import { GlobeIcon } from 'lucide-react';
 
+import MDGPTContent from '@/app/(site)/projects/components/projects-content/md-gpt-content';
 import { urlify } from '../../../lib/utils';
 import LumiContent from './components/projects-content/lumi-content';
 import RobertifyContent from './components/projects-content/robertify-content';
-import { Project, Technology } from './types';
+import { Technology } from './types';
 
 export const projects: Project[] = [
 	{
@@ -234,7 +235,7 @@ export const projects: Project[] = [
 			year: [2023, null],
 			customer: 'Personal Project',
 			shortDescription:
-				"DreamLogger is a showcase of my proficiency in full-stack web development, featuring a captivating Next.js front-end enriched with TypeScript, SASS, TailwindCSS, and UI libraries. The application's robust back-end utilizes Prisma for efficient database queries, Next-Auth for secure user authentication, and leverages AWS components like S3, CloudFront, and Route53 for scalability. The meticulous design process, initiated in Figma, resulted in a seamless user experience, ensuring dream enthusiasts can effortlessly log, categorize, and share their dreams while exploring personalized features like the Dream Calendar, custom tags, and character tracking. DreamLogger represents not just a web application, but a fusion of innovative technologies and thoughtful design, encapsulating the potential of modern web development.",
+				'DreamLogger is a showcase of my proficiency in full-stack web development, featuring a captivating Next.js front-end enriched with TypeScript, SASS, TailwindCSS, and UI libraries. The application\'s robust back-end utilizes Prisma for efficient database queries, Next-Auth for secure user authentication, and leverages AWS components like S3, CloudFront, and Route53 for scalability. The meticulous design process, initiated in Figma, resulted in a seamless user experience, ensuring dream enthusiasts can effortlessly log, categorize, and share their dreams while exploring personalized features like the Dream Calendar, custom tags, and character tracking. DreamLogger represents not just a web application, but a fusion of innovative technologies and thoughtful design, encapsulating the potential of modern web development.',
 		},
 		links: [
 			{
@@ -312,13 +313,13 @@ export const projects: Project[] = [
 		],
 	},
 	{
-		name: "Green's Restaurant & Pub Management Dashboard",
+		name: 'Green\'s Restaurant & Pub Management Dashboard',
 		details: {
 			category: 'Web Development',
 			year: 2021,
 			customer: 'Personal Project',
 			shortDescription:
-				"A dashboard used to handle the managing of Green's Restaurant & Pub",
+				'A dashboard used to handle the managing of Green\'s Restaurant & Pub',
 		},
 		links: [
 			{

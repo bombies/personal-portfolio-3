@@ -1,7 +1,7 @@
 'use client';
 
-import { useLocalCache } from '@/lib/hooks/local-storage/useLocalCache';
 import { useEffect, useMemo, useState } from 'react';
+import { useLocalCache } from '@/lib/hooks/local-storage/useLocalCache';
 
 import {
 	defaultColour,
@@ -70,8 +70,8 @@ export const useExtractColors = (
 			try {
 				if (isMounted && localCache) {
 					const cacheKey = `extractedColors#${imageUrl}`;
-					const cachedColors =
-						localCache.getCachedItem<ExtractedColorsCacheValue>(cacheKey);
+					const cachedColors
+						= localCache.getCachedItem<ExtractedColorsCacheValue>(cacheKey);
 
 					if (cachedColors) {
 						setDominantColor(cachedColors.dominantColor);

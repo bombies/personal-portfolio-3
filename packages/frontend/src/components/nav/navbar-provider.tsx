@@ -1,10 +1,12 @@
 'use client';
 
-import {
+import type {
 	Dispatch,
 	FC,
 	PropsWithChildren,
 	SetStateAction,
+} from 'react';
+import {
 	createContext,
 	useContext,
 	useMemo,

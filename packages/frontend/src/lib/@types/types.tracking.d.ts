@@ -12,9 +12,9 @@ declare namespace Gtag {
 		(...args: GtagFunctionArgs): void;
 	}
 
-	type GtagFunctionArgs =
-		| [GtagCommand, EventName | EventParams | CustomParams]
-		| [GtagCommand, string, EventParams | CustomParams];
+	type GtagFunctionArgs
+		= | [GtagCommand, EventName | EventParams | CustomParams]
+			| [GtagCommand, string, EventParams | CustomParams];
 
 	type GtagCommand = 'config' | 'set' | 'js' | 'event' | 'consent';
 

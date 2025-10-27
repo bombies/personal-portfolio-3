@@ -1,6 +1,6 @@
+import type { FC } from 'react';
 import ArticleSection from '@/app/(site)/projects/components/projects-content/utils/article-section';
 import LineSpacer from '@/app/(site)/projects/components/projects-content/utils/line-spacer';
-import { FC } from 'react';
 
 const MDGPTContent: FC = () => {
 	return (
@@ -17,34 +17,45 @@ const MDGPTContent: FC = () => {
 			<ArticleSection title="The Tech Behind It">
 				<ul className="list-disc marker:text-primary px-6">
 					<li>
-						<b className="text-primary">Patient & Consultation Management:</b>{' '}
+						<b className="text-primary">Patient & Consultation Management:</b>
+						{' '}
 						A straightforward system that helps doctors efficiently create,
 						update, and organize patient records.
 					</li>
 					<li>
-						<b className="text-primary">AI-Powered Chat Interface:</b> When
+						<b className="text-primary">AI-Powered Chat Interface:</b>
+						{' '}
+						When
 						doctors engage with the interface, the AI—trained on a rich
 						dataset of doctor-patient interactions—provides additional
 						insights to support the diagnostic process.
 					</li>
 					<li>
-						<b className="text-primary">Natural Language Processing:</b> Using
+						<b className="text-primary">Natural Language Processing:</b>
+						{' '}
+						Using
 						OpenAI’s Python library, MD-GPT extracts and analyzes critical
 						information from conversations, ensuring that key details are
 						captured.
 					</li>
 					<li>
-						<b className="text-primary">Secure Data Storage:</b> Patient
+						<b className="text-primary">Secure Data Storage:</b>
+						{' '}
+						Patient
 						records, consultation histories, and chat logs are securely stored
 						in a scalable MongoDB database.
 					</li>
 					<li>
-						<b className="text-primary">High-Speed API:</b> FastAPI powers the
+						<b className="text-primary">High-Speed API:</b>
+						{' '}
+						FastAPI powers the
 						backend, enabling real-time communication between the frontend and
 						the AI model.
 					</li>
 					<li>
-						<b className="text-primary">RAG via Kernel-Memory:</b> The latest
+						<b className="text-primary">RAG via Kernel-Memory:</b>
+						{' '}
+						The latest
 						update integrates Retrieval Augmented Generation (RAG) through
 						Kernel-Memory, which allows the system to merge historical
 						knowledge with real-time data, resulting in more contextually

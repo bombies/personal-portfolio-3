@@ -1,40 +1,44 @@
 'use client';
 
-import { MotionProps, motion } from 'motion/react';
-import { useTransitionRouter } from 'next-view-transitions';
-import Link, { LinkProps } from 'next/link';
-import {
+import type { MotionProps } from 'motion/react';
+import type { LinkProps } from 'next/link';
+import type {
 	AnchorHTMLAttributes,
 	ButtonHTMLAttributes,
 	DetailedHTMLProps,
 	FC,
+} from 'react';
+import { motion } from 'motion/react';
+import { useTransitionRouter } from 'next-view-transitions';
+import Link from 'next/link';
+import {
 	useMemo,
 } from 'react';
 
 import { slideRight } from '../../lib/page-transitions';
 import { cn } from '../../lib/utils';
 
-type Props =
+type Props
+	= | ({
+		href?: never;
+		smoothTransition?: never;
+		newTab?: never;
+	} & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>)
 	| ({
-			href?: never;
-			smoothTransition?: never;
-			newTab?: never;
-	  } & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>)
-	| ({
-			href: string;
-			smoothTransition?: boolean;
-			newTab?: boolean;
-	  } & Omit<
-			LinkProps &
-				DetailedHTMLProps<
-					AnchorHTMLAttributes<HTMLAnchorElement>,
-					HTMLAnchorElement
-				>,
-			'href'
-	  >);
+		href: string;
+		smoothTransition?: boolean;
+		newTab?: boolean;
+	} & Omit<
+		LinkProps
+		& DetailedHTMLProps<
+			AnchorHTMLAttributes<HTMLAnchorElement>,
+			HTMLAnchorElement
+		>,
+		'href'
+	>);
 
-export const badgeClass =
-	'border border-border bg-background px-4 py-1 rounded-full font-mono';
+export const badgeClass
+	= 'border border-border bg-background px-4 py-1 rounded-full font-mono';
 
 const btnAnimation: MotionProps = {
 	whileHover: {
@@ -59,44 +63,47 @@ const BadgeButton: FC<Props> = ({
 		[className],
 	);
 
-	return href ? (
-		smoothTransition ? (
-			// @ts-expect-error Typescript can't tell that the attributes will be for an anchor
-			<motion.a
-				{...props}
-				{...btnAnimation}
-				target={newTab ? '_blank' : undefined}
-				rel={newTab ? 'noopener noreferrer' : undefined}
-				href={href}
-				className={btnClass}
-				onClick={e => {
-					e.preventDefault();
-					router.push(href, {
-						onTransitionReady: slideRight,
-					});
-				}}
-			>
-				{children}
-			</motion.a>
-		) : (
-			// @ts-expect-error Typescript can't tell that the attributes will be for an anchor
-			<MotionLink
-				{...props}
-				{...btnAnimation}
-				target={newTab ? '_blank' : undefined}
-				rel={newTab ? 'noopener noreferrer' : undefined}
-				href={href}
-				className={btnClass}
-			>
-				{children}
-			</MotionLink>
-		)
-	) : (
-		// @ts-expect-error Typescript can't tell that the attributes will be for a button
-		<motion.button {...props} {...btnAnimation} className={btnClass}>
-			{children}
-		</motion.button>
-	);
+	return href
+		? (
+				smoothTransition
+					? (
+				// @ts-expect-error Typescript can't tell that the attributes will be for an anchor
+							<motion.a
+								{...props}
+								{...btnAnimation}
+								target={newTab ? '_blank' : undefined}
+								rel={newTab ? 'noopener noreferrer' : undefined}
+								href={href}
+								className={btnClass}
+								onClick={(e) => {
+									e.preventDefault();
+									router.push(href, {
+										onTransitionReady: slideRight,
+									});
+								}}
+							>
+								{children}
+							</motion.a>
+						)
+					: (
+				// @ts-expect-error Typescript can't tell that the attributes will be for an anchor
+							<MotionLink
+								{...props}
+								{...btnAnimation}
+								target={newTab ? '_blank' : undefined}
+								rel={newTab ? 'noopener noreferrer' : undefined}
+								href={href}
+								className={btnClass}
+							>
+								{children}
+							</MotionLink>
+						)
+			) : (
+	// @ts-expect-error Typescript can't tell that the attributes will be for a button
+				<motion.button {...props} {...btnAnimation} className={btnClass}>
+					{children}
+				</motion.button>
+			);
 };
 
 export default BadgeButton;

@@ -1,8 +1,9 @@
 'use client';
 
+import type { FC } from 'react';
 import { useTransitionRouter } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
-import { FC, Fragment, useMemo } from 'react';
+import { Fragment, useMemo } from 'react';
 
 import { slideLeft } from '../../lib/page-transitions';
 import {
@@ -100,46 +101,48 @@ const BreadcrumbBuilder: FC<Props> = ({
 					</BreadcrumbItem>
 					<BreadcrumbSeparator />
 					{/* Hidden crumbs */}
-					{hiddenCrumbs.length ? (
-						<BreadcrumbItem>
-							<DropdownMenu>
-								<DropdownMenuTrigger className="flex items-center gap-1">
-									<BreadcrumbEllipsis className="h-4 w-4" />
-									<span className="sr-only">
-										Toggle
-										menu
-									</span>
-								</DropdownMenuTrigger>
-								<DropdownMenuContent>
-									{hiddenCrumbs.map(
-										(
-											crumb,
-											idx,
-										) => (
-											<DropdownMenuItem
-												key={`breadcrumb#${crumb.href}#${idx}`}
-												asChild
-											>
-												<BreadcrumbItem>
-													<BreadcrumbTransitionLink
-														href={
-															crumb.href
-														}
-														label={
-															crumb.label
-														}
-														transition={
-															slideLeft
-														}
-													/>
-												</BreadcrumbItem>
-											</DropdownMenuItem>
-										),
-									)}
-								</DropdownMenuContent>
-							</DropdownMenu>
-						</BreadcrumbItem>
-					) : undefined}
+					{hiddenCrumbs.length
+						? (
+								<BreadcrumbItem>
+									<DropdownMenu>
+										<DropdownMenuTrigger className="flex items-center gap-1">
+											<BreadcrumbEllipsis className="h-4 w-4" />
+											<span className="sr-only">
+												Toggle
+												menu
+											</span>
+										</DropdownMenuTrigger>
+										<DropdownMenuContent>
+											{hiddenCrumbs.map(
+												(
+													crumb,
+													idx,
+												) => (
+													<DropdownMenuItem
+														key={`breadcrumb#${crumb.href}#${idx}`}
+														asChild
+													>
+														<BreadcrumbItem>
+															<BreadcrumbTransitionLink
+																href={
+																	crumb.href
+																}
+																label={
+																	crumb.label
+																}
+																transition={
+																	slideLeft
+																}
+															/>
+														</BreadcrumbItem>
+													</DropdownMenuItem>
+												),
+											)}
+										</DropdownMenuContent>
+									</DropdownMenu>
+								</BreadcrumbItem>
+							)
+						: undefined}
 
 					{/* Last 2 crumbs */}
 					{visibleCrumbsButFirstandLast}
@@ -147,8 +150,8 @@ const BreadcrumbBuilder: FC<Props> = ({
 						<BreadcrumbPage>
 							{
 								visibleCrumbs[
-									visibleCrumbs.length -
-										1
+									visibleCrumbs.length
+									- 1
 								].label
 							}
 						</BreadcrumbPage>
@@ -176,7 +179,7 @@ const BreadcrumbTransitionLink: FC<BreadcrumbTransitionLinkProps> = ({
 	return (
 		<BreadcrumbLink
 			href={href}
-			onClick={e => {
+			onClick={(e) => {
 				e.preventDefault();
 
 				if (pathName === href) return;

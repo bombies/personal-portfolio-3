@@ -1,6 +1,9 @@
-import { GalleryProps } from '@/app/(site)/projects/components/projects-content/utils/gallery';
-import {
+import type {
 	IconType,
+} from '@icons-pack/react-simple-icons';
+import type { ReactNode } from 'react';
+import type { GalleryProps } from '@/app/(site)/projects/components/projects-content/utils/gallery';
+import {
 	SiAmazoncloudwatch,
 	SiAmazondynamodb,
 	SiAmazonec2,
@@ -45,7 +48,6 @@ import {
 	SiTrpc,
 	SiTypescript,
 } from '@icons-pack/react-simple-icons';
-import { ReactNode } from 'react';
 
 export type Project = {
 	name: string;

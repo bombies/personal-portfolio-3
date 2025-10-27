@@ -1,7 +1,7 @@
 'use client';
 
-import { MotionConfig, motion } from 'motion/react';
-import { FC } from 'react';
+import type { FC } from 'react';
+import { motion, MotionConfig } from 'motion/react';
 
 import { useNavbarData } from './navbar-provider';
 
@@ -23,12 +23,11 @@ const NavbarHamburger: FC<HamburgerProps> = ({ onOpenChange }) => {
 				initial={false}
 				className="size-12 border border-border rounded-sm p- relative"
 				onClick={() =>
-					setOpened(prev => {
+					setOpened((prev) => {
 						const newVal = !prev;
 						onOpenChange?.(newVal);
 						return newVal;
-					})
-				}
+					})}
 				animate={opened ? 'open' : 'closed'}
 			>
 				<motion.span

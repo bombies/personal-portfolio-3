@@ -1,5 +1,12 @@
 'use client';
 
+import type { IconType } from '@icons-pack/react-simple-icons';
+import type { FC } from 'react';
+import { SiInspire } from '@icons-pack/react-simple-icons';
+import { MailIcon } from 'lucide-react';
+import { motion } from 'motion/react';
+import Link from 'next/link';
+import { useMemo } from 'react';
 import MainContainer from '@/components/ui/main-container';
 import { Separator } from '@/components/ui/separator';
 import Title from '@/components/ui/title';
@@ -8,11 +15,6 @@ import {
 	itemStaggerVariants,
 	itemStaggerVariantsWithShowStagger,
 } from '@/lib/animation-utils';
-import { IconType, SiInspire } from '@icons-pack/react-simple-icons';
-import { MailIcon } from 'lucide-react';
-import { motion } from 'motion/react';
-import Link from 'next/link';
-import { FC, useMemo } from 'react';
 
 const contactOptions: ContactCardProps[] = [
 	{
@@ -47,7 +49,9 @@ const ContactPage: FC = () => {
 		>
 			<motion.span variants={itemStaggerVariants}>
 				<Title className="tablet:text-7xl">
-					Contact <span className="text-primary">Me</span>
+					Contact
+					{' '}
+					<span className="text-primary">Me</span>
 				</Title>
 			</motion.span>
 

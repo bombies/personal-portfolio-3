@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 const RobertifyContent: FC = () => {
 	return (
@@ -32,7 +32,8 @@ const RobertifyContent: FC = () => {
 				Discord. I have learn through mutliple trial and
 				error instances to manage such a user-base.
 				<br />
-				<br />I could go on and on about the many
+				<br />
+				I could go on and on about the many
 				lessons I&apos;ve learnt from building this
 				application but I think that&apos;s better fit
 				for a blog post. Instead, you can enjoy this

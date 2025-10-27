@@ -1,5 +1,5 @@
+import type { FC } from 'react';
 import Image from 'next/image';
-import { FC } from 'react';
 
 import ArticleSection from './utils/article-section';
 
@@ -35,8 +35,13 @@ const LumiContent: FC = () => {
 				</p>
 				<p>
 					One thing I knew for sure was that I didn&apos;t want to manage my
-					infrastructure at the operational level, so I utilized a{' '}
-					<b>full serverless infrastructure</b> with <b>AWS</b>. Below is a
+					infrastructure at the operational level, so I utilized a
+					{' '}
+					<b>full serverless infrastructure</b>
+					{' '}
+					with
+					<b>AWS</b>
+					. Below is a
 					high-level diagram of the various tools and services used in
 					Lumi&apos;s infrastructure.
 				</p>
@@ -79,7 +84,10 @@ const LumiContent: FC = () => {
 						The CDN either delivers the cached page or fetches the page from
 						the origin stored in an AWS S3 bucket. The S3 stores all the
 						static files for the website, so all the HTML, CSS, JavaScript and
-						anything in the <span className="inline-code">public</span>{' '}
+						anything in the
+						{' '}
+						<span className="inline-code">public</span>
+						{' '}
 						folder. If the user hits a dynamically loaded page, they will need
 						to talk to the Next.js server. That&apos;s where the
 						WebsiteFunction Lambda function comes into play. The CDN will
@@ -142,11 +150,20 @@ const LumiContent: FC = () => {
 							thumbnails and other user-related file content. The bucket is
 							also behind a CDN, and as such, objects in the bucket will be
 							inaccessible if a user tries to retrieve them from the bucket
-							directly. Meaning, they <b>must</b> use CDN to fetch all
+							directly. Meaning, they
+							{' '}
+							<b>must</b>
+							{' '}
+							use CDN to fetch all
 							objects. The bucket CDN has a special behaviour for objects
-							deemed private. Any objects with a prefixed object key of{' '}
-							<span className="inline-code">private/</span> must be
-							retrieved through a <b>signed URL</b>. This is a security
+							deemed private. Any objects with a prefixed object key of
+							{' '}
+							<span className="inline-code">private/</span>
+							{' '}
+							must be
+							retrieved through a
+							<b>signed URL</b>
+							. This is a security
 							measure that ensures any objects uploaded in a relationship
 							context stay within that relationship context.
 						</p>
@@ -251,10 +268,17 @@ const LumiContent: FC = () => {
 						</p>
 						<p>
 							The Presence Subscriber function is what handles updating a
-							user&apos;s presence in the database. A user can either be{' '}
-							<span className="inline-code">online</span>,{' '}
-							<span className="inline-code">idle</span> or{' '}
-							<span className="inline-code">offline</span>. There are
+							user&apos;s presence in the database. A user can either be
+							{' '}
+							<span className="inline-code">online</span>
+							,
+							{' '}
+							<span className="inline-code">idle</span>
+							{' '}
+							or
+							{' '}
+							<span className="inline-code">offline</span>
+							. There are
 							certain event listeners and triggers on the browser that will
 							send a notification through the web socket. This function is
 							what takes the payload and updates the database.

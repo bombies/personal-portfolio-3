@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import LineSpacer from '@/app/(site)/projects/components/projects-content/utils/line-spacer';
 import {
 	Accordion,
@@ -5,7 +6,6 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from '@/components/ui/accordion';
-import { FC } from 'react';
 
 const GreensPubContent: FC = () => {
 	return (

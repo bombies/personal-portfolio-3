@@ -1,7 +1,7 @@
+import type { FC } from 'react';
 import ArticleSection from '@/app/(site)/projects/components/projects-content/utils/article-section';
 import LineSpacer from '@/app/(site)/projects/components/projects-content/utils/line-spacer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { FC } from 'react';
 
 const DreamLoggerContent: FC = () => {
 	return (

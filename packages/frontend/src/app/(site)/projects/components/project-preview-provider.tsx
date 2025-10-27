@@ -1,7 +1,8 @@
 'use client';
 
-import { Project } from '@/app/(site)/projects/types';
-import { Dispatch, FC, PropsWithChildren, SetStateAction, createContext, useContext, useMemo, useState } from 'react';
+import type { Dispatch, FC, PropsWithChildren, SetStateAction } from 'react';
+import type { Project } from '@/app/(site)/projects/types';
+import { createContext, useContext, useMemo, useState } from 'react';
 
 type ProjectPreviewData = {
 	focusedProject?: Project;
