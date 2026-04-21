@@ -16,10 +16,11 @@ import {
 	itemStaggerVariantsWithShowStagger,
 } from '@/lib/animation-utils';
 
+const MotionTitle = motion.create(Title);
+const MotionSeparator = motion.create(Separator);
+const MotionBadge = motion.create(Badge);
+
 const AboutMePage: FC = () => {
-	const MotionTitle = motion.create(Title);
-	const MotionSeparator = motion.create(Separator);
-	const MotionBadge = motion.create(Badge);
 
 	return (
 		<MainContainer className="flex-col pt-12 laptop:h-[calc(100vh-5.5rem)] tablet:pt-24 laptop:pt-24">

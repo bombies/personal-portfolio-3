@@ -2,7 +2,6 @@
 
 import type { FC } from 'react';
 import { motion } from 'motion/react';
-import { useMemo } from 'react';
 import { containerStaggerVariants, itemStaggerVariants } from '@/lib/animation-utils';
 
 import BreadcrumbBuilder from '../../../components/ui/breadcrumb-builder';
@@ -14,8 +13,9 @@ import ProjectListing from './components/project-listing';
 import ProjectPreviewProvider from './components/project-preview-provider';
 import { projects } from './data';
 
+const MotionBreadcrumbBuilder = motion.create(BreadcrumbBuilder);
+
 const ProjectsPage: FC = () => {
-	const MotionBreadcrumbBuilder = useMemo(() => motion.create(BreadcrumbBuilder), []);
 
 	return (
 		<ProjectPreviewProvider>

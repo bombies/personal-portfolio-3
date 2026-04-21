@@ -129,10 +129,10 @@ export default function RootLayout({
 					<Navbar />
 					{children}
 					<CookieConsentBanner />
-				</body>
 				<GoogleAnalyticsProvider
 					gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!}
 				/>
+				</body>
 			</html>
 		</ViewTransitions>
 	);

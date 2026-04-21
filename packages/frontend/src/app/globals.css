@@ -214,12 +214,7 @@
 	z-index: 1;
 }
 
-::view-transition-new(rot) {
-	z-index: 10000;
-	animation: none !important;
-}
-
-::view-transition-new(rot) {
+::view-transition-new(root) {
 	z-index: 1;
 	animation: none !important;
 }

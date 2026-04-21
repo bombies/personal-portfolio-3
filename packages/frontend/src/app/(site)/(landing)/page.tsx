@@ -2,15 +2,15 @@
 
 import { ArrowRightIcon } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useMemo } from 'react';
 import { containerStaggerVariants, itemStaggerVariants } from '@/lib/animation-utils';
 
 import { Badge } from '../../../components/ui/badge';
 import BadgeButton from '../../../components/ui/badge-button';
 import MainContainer from '../../../components/ui/main-container';
 
+const MotionBadge = motion.create(Badge);
+
 export default function Home() {
-	const MotionBadge = useMemo(() => motion.create(Badge), []);
 
 	return (
 		<MainContainer className="flex-col !max-w-full">
