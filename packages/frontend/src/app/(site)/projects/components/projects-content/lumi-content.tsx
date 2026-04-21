@@ -7,20 +7,15 @@ const LumiContent: FC = () => {
 	return (
 		<article className="text-lg space-y-6">
 			<p>
-				The idea of Lumi came primarily from my girlfriend. After the mark of our
-				first month together, I created a Discord bot known as Ajani Bot. Ajani
-				Bot would give her daily affirmations and include a database of our
-				favourite movies and songs. She loved the bot and would interact with it a
-				lot. As time went on, however, the bot became unmaintained and eventually
-				unstable, so I had to shut it down. A couple of years passed and she
-				casually mentioned how she missed Ajani Bot, and around the same time I
-				was scrambling to think of something to give her for her birthday. The
-				feature she missed the most was the affirmations and then it hit me- what
-				if I made Ajani Bot again but bigger, better and more interactive?
+				Lumi was conceptualized as a comprehensive, standalone platform designed to deliver
+				scheduled content, manage media recommendations, and facilitate seamless real-time
+				communication. Recognizing the value of dedicated, interactive digital spaces, I
+				built Lumi from the ground up to be a robust, highly scalable application that handles
+				multimedia sharing and instant presence tracking.
 			</p>
 			<ArticleSection title="The Concept">
 				<p>
-					Lumi is a space for relationships that provides daily affirmations, a
+					Lumi is a collaborative space for users that provides scheduled content delivery, a
 					platform to share videos (&ldquo;Moments&rdquo;), and a song
 					recommendation/rating platform integrated with Spotify. Lumi also
 					provides real-time notification and messaging capabilities so no
@@ -164,8 +159,8 @@ const LumiContent: FC = () => {
 							retrieved through a
 							<b>signed URL</b>
 							. This is a security
-							measure that ensures any objects uploaded in a relationship
-							context stay within that relationship context.
+							measure that ensures any objects uploaded in a shared user context
+							stay strictly within that isolated context.
 						</p>
 						<p>
 							There are further restrictions placed on these signed URLs,
@@ -192,19 +187,19 @@ const LumiContent: FC = () => {
 							partition and sort keys and Global Secondary Indexes (GSIs).
 							All of the data users can interact with is stored in this
 							table. There are also a few streams that are triggered on some
-							events for some specific keys. These include the relationship
+							events for some specific keys. These include the connection
 							stream handler, moment deletion stream handler and the moment
 							thumbnail transcoder handler.
 						</p>
 						<p>
-							The relationship stream handler is used to handle relationship
-							deletions. Every time a relationship is deleted, the streaming
+							The connection stream handler is used to handle user connection
+							deletions. Every time a connection is deleted, the streaming
 							subscriber (a Lambda function) is invoked and proceeds to
-							delete all the information related to that relationship.
+							delete all the information related to that specific connection.
 						</p>
 						<p>
 							The moment deletion subscriber does something similar to the
-							relationship stream handler. It just deletes all information
+							connection stream handler. It just deletes all information
 							relating to a moment upon its deletion.
 						</p>
 						<p>
@@ -221,23 +216,23 @@ const LumiContent: FC = () => {
 							Lumi&apos;s concept.
 						</p>
 						<p>
-							Affirmations are sent out daily at a specified point in time.
+							Scheduled content updates are sent out daily at a specified point in time.
 							This is handled by AWS EventBridge and a CRON abstraction
 							provided by SST. EventBridge will send a notification to a
-							subscriber (the Affirmation Aggregator Job) when it is time to
-							send out affirmations. The job of the aggregator is
-							self-explanatory. All it does is collect all the relationships
-							that are due for an affirmation. Once they have all been
-							collected, they are then sent to an AWS SQS Queue (Affirmation
+							subscriber (the Content Aggregator Job) when it is time to
+							send out updates. The job of the aggregator is
+							self-explanatory. All it does is collect all the user connections
+							that are due for a scheduled update. Once they have all been
+							collected, they are then sent to an AWS SQS Queue (Content
 							Sender Queue) to send out the notifications to the users. Once
 							an item in the queue is ready to be processed, the message is
-							sent to the Affirmation Sender Job function. The function
-							extracts the users in the relationship and selects an
-							affirmation (with heuristic probabilistic bias) to send to
+							sent to the Content Sender Job function. The function
+							extracts the connected users and selects the appropriate content
+							(with heuristic probabilistic bias) to send to
 							them (if any). The job then determines how to send the
 							notification to the user. If the user is online, the job will
 							just send a Web Socket message notifying the user of the
-							affirmation which will then be handled by the client. If they
+							update which will then be handled by the client. If they
 							are offline, the job will send the notification through the
 							push notification services the user has subscribed to. If any
 							jobs fail, they will be retried for a maximum of 3 times. If
@@ -295,8 +290,10 @@ const LumiContent: FC = () => {
 					All-in-all Lumi was a very ambitious project with several components
 					that took blood, sweat and tears to develop. It gave me vast
 					experiences with serverless computing and AWS, real-time communication
-					and PWA/Mobile app development. Also, my girlfriend really liked it so
-					I think this is probably my most successful personal project yet.
+					and PWA/Mobile app development. Building a platform of this scale from
+					scratch has solidified my expertise in building resilient, modern web
+					applications, making it one of my most successful and comprehensive
+					technical projects to date.
 				</p>
 			</ArticleSection>
 		</article>
